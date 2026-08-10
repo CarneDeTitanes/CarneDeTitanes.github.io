@@ -1,7 +1,7 @@
 {
   "name": "Carne de Titanes",
   "short_name": "Carne de Titanes",
-  "start_url": "./index_epsilon.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0B121C",
   "theme_color": "#0B121C",
