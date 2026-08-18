@@ -1764,7 +1764,7 @@ const weapons = [
   {name:'Vara del Chispazo', type:'Varita', dice:'1d4+INT', rarity:'comun', price:260, desc:'Al golpear cuerpo a cuerpo, puedes descargarla para infligir 1d4 de daño de trueno adicional (una vez por descanso corto).'},
   {name:'Aguijón Veloz', type:'Espada corta', dice:'1d6+DES', rarity:'azul', price:680, desc:'Sutil. Al impactar, tu velocidad aumenta 3 metros hasta el final de tu turno.'},
   {name:'Tridente de Marea', type:'Tridente', dice:'1d8+FUE', rarity:'azul', price:720, desc:'+1d4 de daño de frío adicional contra objetivos en contacto con agua.'},
-  {name:'Tromba Certera', type:'Ballesta ligera', dice:'1d8+DES', rarity:'azul', price:750, desc:'Ignora la cobertura media del objetivo al disparar.'},
+  {name:'Espada de la Luz Lunar', type:'Espada larga', dice:'1d8+DES', rarity:'azul', price:650, desc:'Al desenvainarla, emite luz brillante en un radio de 4m. Se considera un arma mágica para superar resistencias al daño no mágico.'},
   {name:'Bastón del Eco Arcano', type:'Bastón mágico', dice:'1d6+FUE', rarity:'azul', price:900, desc:'Una vez por descanso largo, puedes lanzar un truco de daño que conozcas como Acción Adicional en vez de como Acción.'}
 ];
 
@@ -1775,22 +1775,22 @@ const armors = [
   {name:'Cota de Musgo', slot:'Armadura', baseAC:'11 + DES', weight:'Ligera', rarity:'comun', price:310, desc:'+1 a la CA total. Resistencia a daño de veneno mientras estés en terreno natural.'},
   {name:'Placas Remendadas', slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Intermedia', rarity:'comun', price:360, desc:'+1 a la CA total. Dale un golpecito a la coraza para que se ilumine en un radio de 6m.'},
   {name:'Coraza Autónoma', slot:'Armadura', baseAC:'18', weight:'Pesada', rarity:'comun', price:400, desc:'+1 a la CA total. Puede ponerse y quitarse sola con una orden mental sencilla.'},
-  {name:'Guanteletes del Centinela', slot:'Guantes', rarity:'azul', price:650, desc:'Ventaja en salvaciones contra ser derribado.'},
+  {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:750, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a sus tiradas de ataque una vez por turno.'},
   {name:'Botas del Caminante Silente', slot:'Botas', rarity:'azul', price:450, desc:'Tus pasos no dejan huella ni hacen ruido sobre superficies naturales.'},
-  {name:'Yelmo de Visión Lejana', slot:'Casco', rarity:'azul', price:800, desc:'Ves con claridad hasta 60 metros, ignorando penalizadores por distancia en tiradas de Percepción visual.'},
+  {name:'Diadema de Sinergia Arcana', slot:'Casco', rarity:'azul', price:600, desc:'Cada vez que aplicas un estado a un enemigo obtienes Sinergia Arcana, el turno siguiente sumas el modificador de tu característica de lanzamiento de conjuros al daño de tus ataques con armas'},
   {name:'Escamas del Abismo Menor', slot:'Armadura', baseAC:'18', weight:'Pesada', rarity:'azul', price:900, desc:'+2 a la CA total. Resistencia a daño necrótico.'}
 ];
 
 const accessories = [
   {name:'Anillo de Aguas Quietas', type:'Anillo', rarity:'comun', price:300, desc:'Ventaja en salvaciones de Sabiduría contra ser asustado o dominado por miedo.'},
   {name:'Amuleto del Rastreador', type:'Amuleto', rarity:'comun', price:310, desc:'Ventaja en pruebas de Sabiduría (Percepción) para encontrar pistas, huellas o pasadizos ocultos.'},
-  {name:'Anillo de Manos Firmes', type:'Anillo', rarity:'comun', price:260, desc:'Ventaja en pruebas de Destreza para no dejar caer objetos.'},
-  {name:'Amuleto del Peregrino', type:'Amuleto', rarity:'comun', price:300, desc:'Ventaja en tiradas de Supervivencia para encontrar comida y agua.'},
+  {name:'Anillo de Alondra', type:'Anillo', rarity:'comun', price:260, desc:'Permite al portador lanzar el truco Guía, 1 vez por descanso corto.'},
   {name:'Anillo del Pulso Constante', type:'Anillo', rarity:'comun', price:280, desc:'Ventaja en salvaciones de Constitución contra veneno.'},
-  {name:'Capa de Viajero Curtido', type:'Capa', rarity:'comun', price:290, desc:'Resistencia a las inclemencias del tiempo; nunca sufres desventaja por frío o lluvia.'},
+  {name:'Capa del Asesino', type:'Capa', rarity:'comun', price:390, desc:'Una vez por turno, al matar a un enemigo obtienes Invisibilidad durante un turno, una vez por descanso corto.'},
   {name:'Capa de Ceniza Fría', type:'Capa', rarity:'azul', price:620, desc:'Resistencia a daño de frío mientras la lleves puesta.'},
-  {name:'Amuleto de Voz Firme', type:'Amuleto', rarity:'azul', price:550, desc:'Ventaja en salvaciones contra ser asustado.'},
-  {name:'Capa de Plumas Grises', type:'Capa', rarity:'azul', price:640, desc:'Ventaja en Sigilo mientras te mueves despacio; el viento no delata tu posición.'},
+  {name:'Amuleto de Pasos Neblinosos', type:'Amuleto', rarity:'azul', price:550, desc:'Permite tira Paso brumoso una vez por descanso largo.'},
+  {name:'Amuleto del Peregrino', type:'Amuleto', rarity:'azul', price:700, desc:'Ventaja en tiradas de Supervivencia para encontrar comida y agua.'},
+  {name:'Capa de Protección', type:'Capa', rarity:'azul', price:440, desc:'Otorga un bono pasivo de +1 a (CA) y +1 a todas las Tiradas de Salvación.'},
   {name:'Anillo del Eco Cercano', type:'Anillo', rarity:'azul', price:700, desc:'Una vez por descanso corto, susurra un mensaje que solo oirá quien elijas, hasta 18 metros de distancia.'}
 ];
 
