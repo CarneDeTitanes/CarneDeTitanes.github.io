@@ -200,6 +200,8 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .mi-gate input{width:100%; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:5px; color:var(--text); padding:0.7rem; font-family:'Inter';}
 .mi-gate input:focus{outline:none; border-color:var(--gold);}
 .mi-gate button{margin-top:0.8rem; width:100%; background:var(--gold); border:none; border-radius:5px; color:#0B121C; padding:0.7rem; font-family:'Inter'; font-weight:600; cursor:pointer;}
+.mi-gate .mi-gate-back{margin-top:0.65rem; background:transparent; border:1px solid var(--panel-line); color:var(--text-dim); font-weight:400;}
+.mi-gate .mi-gate-back:hover{border-color:var(--gold); color:var(--gold-bright);}
 .mi-gate-error{font-family:'Inter'; font-size:0.72rem; color:#D8796E; min-height:1.1em; margin-top:0.6rem;}
 @media(max-width:620px){.mi-room-grid{grid-template-columns:1fr;}.mi-room-box.full{grid-column:auto;}.mi-room-head .mi-art{width:72px;height:72px;}}
 .mi-header{display:flex; gap:1.2rem; align-items:center; margin-bottom:0.6rem; flex-wrap:wrap;}
@@ -1919,11 +1921,10 @@ function cancelForjaSlot(catKey){
 }
 
 const changelog = [
+  {date:'6 sep', text:'Añadido un botón para volver al selector desde la contraseña de la sala de otro personaje.'},
   {date:'6 sep', text:'Pulido visual general: fondo ambiental animado, iluminación reactiva al cursor, transiciones de entrada, splash más elaborado y respeto por reducción de movimiento.'},
-  {date:'6 sep', text:'Birsha queda sin puntos de culto: contador restablecido a 0 hasta que se defina su sistema de reclutamiento.'},
   {date:'6 sep', text:'Sala Personal refinada: Recursos integrados en Mochila, fondo automático mediante imagen, tramos ampliables tipo Historia, misiones de Birsha con tarjetas y barra de puntos de culto.'},
   {date:'6 sep', text:'Nueva Sala Personal por personaje: contraseña individual, fondo tematizado, PO, raciones, imagen, contenido privado y espacio para inventario.'},
-  {date:'6 sep', text:'Birsha incorpora un espacio privado para misiones secretas de su culto, contador de reclutas y futuras recompensas desbloqueables.'},
   {date:'6 sep', text:'Corregido el diseño del Bastión: sus habitaciones vuelven a alinearse a la izquierda y el texto largo se adapta al ancho disponible.'},
   {date:'6 sep', text:'Simplificada la presentación del Bastión: eliminada la etiqueta «Desbloqueada» de sus habitaciones.'},
   {date:'6 sep', text:'Bastión Gremial rediseñado: habitaciones desbloqueadas por nivel del gremio, sin costes de PG salvo el Santuario de Guerra.'},
@@ -2571,6 +2572,7 @@ function renderCharGate(container, p){
       <p>Introduce tu contraseña para entrar en tu habitación personal.</p>
       <input type="password" id="charRoomPassword" placeholder="Contraseña" autocomplete="current-password">
       <button id="charRoomEnter">Entrar</button>
+      <button class="mi-gate-back" id="charRoomBack" type="button">← Volver al selector</button>
       <div class="mi-gate-error" id="charRoomError"></div>
     </div>`;
   const input = document.getElementById('charRoomPassword');
@@ -2585,6 +2587,10 @@ function renderCharGate(container, p){
     }
   };
   document.getElementById('charRoomEnter').addEventListener('click', enter);
+  document.getElementById('charRoomBack').addEventListener('click', ()=>{
+    localStorage.removeItem(MI_KEY);
+    renderMiPersonaje();
+  });
   input.addEventListener('keydown', e=>{ if(e.key === 'Enter') enter(); });
   input.focus();
 }
