@@ -162,7 +162,7 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .mi-room-box.full{grid-column:1 / -1;}
 .mi-room-box h3{font-size:1rem; color:var(--gold-bright); margin-bottom:0.3rem;}
 .mi-room-box .room-hint{font-family:'Inter'; font-size:0.69rem; color:var(--text-dim); opacity:0.8; margin-bottom:0.8rem;}
-.mi-room-box textarea{width:100%; min-height:150px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:6px; color:var(--text); font-family:'Spectral'; font-size:0.9rem; padding:0.8rem; resize:vertical;}
+.mi-room-box textarea{width:100%; min-height:150px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:6px; color:var(--text); font-family:'Spectral'; font-size:0.9rem; padding:0.8rem; resize:vertical; overflow-y:hidden;}
 .mi-room-box textarea:focus{outline:none; border-color:var(--room-color,var(--gold));}
 .mi-room-box .mochila-resources{display:flex; align-items:center; gap:0.55rem; margin-bottom:0.7rem; flex-wrap:wrap;}
 .mochila-resources .resource-label{font-family:'Inter'; font-size:0.66rem; color:var(--text-dim); margin-right:0.1rem;}
@@ -185,6 +185,26 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .recruit-progress-top{display:flex; justify-content:space-between; font-family:'Inter'; font-size:0.7rem; color:var(--text-dim);}
 .recruit-progress-track{height:8px; margin-top:0.4rem; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:999px; overflow:hidden;}
 .recruit-progress-fill{height:100%; width:0; background:linear-gradient(90deg,var(--r-purple),var(--gold-bright)); transition:width 0.25s ease;}
+.recruit-reward{font-family:'Inter'; font-size:0.72rem; color:var(--gold-bright); margin-top:0.65rem;}
+.karma-panel{margin-top:1.1rem; padding:1rem 0.8rem 0.8rem; background:rgba(6,10,17,0.32); border:1px solid var(--panel-line); border-radius:6px;}
+.karma-panel .karma-label{display:flex; justify-content:space-between; align-items:baseline; font-family:'Inter'; font-size:0.72rem; color:var(--text-dim);}
+.karma-panel .karma-value{font-family:'Cinzel'; font-size:1rem; color:var(--gold-bright);}
+.karma-track{position:relative; height:52px; margin:0.45rem 0 0.2rem;}
+.karma-track::before{content:''; position:absolute; left:0; right:0; top:21px; height:8px; border-radius:999px; background:linear-gradient(90deg,#E0B93E 0%,#C99632 44%,var(--gold-bright) 50%,#D8752B 56%,#E08B2B 100%);}
+.karma-track::after{content:''; position:absolute; left:50%; top:12px; bottom:5px; width:1px; background:var(--gold-bright); opacity:0.8;}
+.karma-track input{position:absolute; inset:0; width:100%; height:42px; margin:0; opacity:0; cursor:pointer; z-index:3;}
+.karma-thumb{position:absolute; top:15px; left:50%; width:20px; height:20px; margin-left:-10px; border-radius:50%; background:var(--gold-bright); border:2px solid var(--bg-deep); box-shadow:0 0 0 2px var(--gold); pointer-events:none; z-index:2; transition:left 0.15s ease;}
+.karma-markers{position:relative; height:1rem; font-family:'Inter'; font-size:0.62rem; color:var(--text-dim);}
+.karma-markers span{position:absolute; transform:translateX(-50%);}
+.karma-markers span:nth-child(1){left:0%; transform:none;}
+.karma-markers span:nth-child(2){left:25%;}
+.karma-markers span:nth-child(3){left:37.5%;}
+.karma-markers span:nth-child(4){left:42.5%;}
+.karma-markers span:nth-child(5){left:50%; color:var(--gold-bright);}
+.karma-markers span:nth-child(6){left:57.5%;}
+.karma-markers span:nth-child(7){left:62.5%;}
+.karma-markers span:nth-child(8){left:75%;}
+.karma-markers span:nth-child(9){left:100%; transform:translateX(-100%);}
 .mi-counter-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.7rem;}
 .mi-counter label{display:block; font-family:'Inter'; font-size:0.68rem; color:var(--text-dim); margin-bottom:0.25rem;}
 .mi-counter input{width:100%; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:5px; color:var(--gold-bright); font-family:'Inter'; font-size:1.1rem; padding:0.55rem;}
@@ -214,7 +234,7 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .mochila-box{background:var(--panel); border:1px solid var(--panel-line); border-radius:8px; padding:1.4rem;}
 .mochila-box h3{font-family:'Cinzel'; color:var(--gold-bright); font-size:1rem; margin-bottom:0.3rem;}
 .mochila-box .mochila-hint{font-family:'Inter'; font-size:0.7rem; color:var(--text-dim); opacity:0.75; margin-bottom:0.9rem;}
-.mochila-box textarea{width:100%; min-height:260px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:6px; color:var(--text); font-family:'Spectral'; font-size:0.95rem; padding:0.9rem; resize:vertical;}
+.mochila-box textarea{width:100%; min-height:260px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:6px; color:var(--text); font-family:'Spectral'; font-size:0.95rem; padding:0.9rem; resize:vertical; overflow-y:hidden;}
 .mochila-box textarea:focus{outline:none; border-color:var(--gold);}
 .mochila-status{font-family:'Inter'; font-size:0.7rem; color:var(--text-dim); margin-top:0.6rem; text-align:right; min-height:1em;}
 
@@ -255,6 +275,44 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .mission-entry h4{font-family:'Cinzel'; font-size:0.88rem; color:var(--text);}
 .mission-entry .m-meta{font-family:'Inter'; font-size:0.68rem; color:var(--tier-color,var(--text-dim)); opacity:0.85; margin-top:0.15rem;}
 .mission-entry .m-desc{font-family:'Spectral'; font-size:0.82rem; color:var(--text-dim); margin-top:0.4rem;}
+.mission-entry.clickable{cursor:pointer; transition:transform 0.2s, border-color 0.2s;}
+.mission-entry.clickable:hover{transform:translateX(4px); border-color:var(--gold);}
+.mission-modal-backdrop{position:fixed; inset:0; background:rgba(6,10,17,0.84); z-index:220; display:none; align-items:center; justify-content:center; padding:1.5rem;}
+.mission-modal-backdrop.active{display:flex;}
+.mission-modal{position:relative; width:min(560px,100%); max-height:88vh; overflow-y:auto; padding:2rem; background:var(--panel); border:1px solid var(--gold); border-radius:8px; box-shadow:0 24px 70px rgba(0,0,0,0.65);}
+.mission-modal h3{font-size:1.5rem; color:var(--gold-bright); margin-bottom:0.3rem;}
+.mission-modal .mission-modal-sub{font-family:'Inter'; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem;}
+.mission-modal p{font-family:'Spectral'; color:var(--text-dim); font-size:0.98rem;}
+.mission-modal .close-x{position:absolute; top:0.8rem; right:1rem; cursor:pointer; color:var(--text-dim); font-size:1.2rem; background:none; border:none;}
+.mission-modal .close-x:hover{color:var(--gold-bright);}
+.guild-title{text-align:center; color:var(--gold-bright); font-size:1.8rem; margin-bottom:2rem;}
+.guild-group-title{font-family:'Cinzel'; color:var(--text); font-size:1.25rem; margin:2.4rem 0 1rem; text-align:center;}
+.guild-roster{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;}
+.guild-member{background:var(--panel); border:1px solid var(--panel-line); border-top:3px solid var(--member-color,var(--gold)); border-radius:8px; padding:1.1rem;}
+.guild-member h3{font-size:1rem; color:var(--gold-bright); margin-bottom:0.7rem;}
+.guild-member dl{display:grid; grid-template-columns:auto 1fr; gap:0.25rem 0.65rem; font-family:'Inter'; font-size:0.7rem;}
+.guild-member dt{color:var(--text-dim);}.guild-member dd{color:var(--text); text-align:right;}
+.guild-resources{display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-top:0.9rem;}
+.guild-resources label{font-family:'Inter'; font-size:0.64rem; color:var(--text-dim);}
+.guild-resources input{width:100%; margin-top:0.2rem; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:4px; color:var(--gold-bright); padding:0.4rem; font-family:'Inter';}
+.guild-member button{width:100%; margin-top:0.8rem; background:transparent; border:1px solid var(--panel-line); border-radius:4px; color:var(--gold-bright); padding:0.45rem; font-family:'Inter'; font-size:0.68rem; cursor:pointer;}
+.guild-member button:hover{border-color:var(--gold);}
+.guild-member.guild-card{padding:1.5rem 0.8rem 1rem; overflow:hidden; cursor:pointer; border-color:var(--member-color,var(--panel-line)); transition:transform 0.2s, border-color 0.2s;}
+.guild-member.guild-card:hover{transform:translateY(-4px); border-color:var(--member-color,var(--panel-line));}
+.guild-card .guild-card-image{width:82px; height:82px; margin:0 auto; border-radius:50%; background-size:cover; background-position:center top; border:2px solid var(--member-color,var(--gold));}
+.guild-card .guild-card-body{padding:0.9rem 0.2rem 0.1rem; text-align:center;}
+.guild-card .guild-card-body h3{font-size:1.15rem; margin-bottom:0.25rem;}
+.guild-card .guild-card-subtitle{font-family:'Inter'; font-size:0.72rem; line-height:1.45; color:var(--text-dim);}
+.guild-card .guild-card-subtitle span{display:block;}
+.guild-card.no-name .guild-card-body h3{font-family:'Spectral'; font-style:italic; font-weight:400;}
+.guild-card.dm-card{padding-bottom:1.5rem;}
+.guild-card.dm-card .guild-card-body{display:none;}
+.dm-dashboard{max-width:820px; margin:2.5rem auto 0; padding:1.5rem; background:var(--panel); border:1px solid var(--gold); border-radius:8px;}
+.dm-dashboard h2{text-align:center; color:var(--gold-bright); margin-bottom:1rem;}
+.dm-space-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem;}
+.dm-space-grid textarea{width:100%; min-height:140px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:5px; color:var(--text); padding:0.7rem; font-family:'Spectral'; resize:vertical;}
+.dm-space-grid label{font-family:'Cinzel'; color:var(--gold); font-size:0.82rem;}
+@media(max-width:620px){.dm-space-grid{grid-template-columns:1fr;}.guild-title{font-size:1.45rem;}}
 
 .rules-panel{background:var(--panel); border:1px solid var(--panel-line); border-radius:8px; padding:1.8rem; margin-bottom:2.2rem;}
 .rules-panel h3{font-family:'Cinzel'; color:var(--gold-bright); font-size:1.1rem; margin-bottom:0.3rem;}
@@ -371,7 +429,7 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .dm-notes-box .dm-warn{font-family:'Inter'; font-size:0.7rem; color:var(--text-dim); opacity:0.75; margin-bottom:1rem;}
 .dm-notes-box textarea{
   width:100%; min-height:320px; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:6px;
-  color:var(--text); font-family:'Spectral'; font-size:0.95rem; padding:0.9rem; resize:vertical;
+  color:var(--text); font-family:'Spectral'; font-size:0.95rem; padding:0.9rem; resize:vertical; overflow-y:hidden;
 }
 .dm-notes-box textarea:focus{outline:none; border-color:var(--gold);}
 .party-arrow{position:absolute; top:50%; transform:translateY(-50%); z-index:5; width:42px; height:42px; border-radius:50%; border:1px solid var(--gold); background:rgba(11,18,28,0.7); color:var(--gold-bright); font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background 0.2s;}
@@ -596,6 +654,59 @@ footer a:hover{color:var(--gold-bright);}
 
 .armor-side-note{border:1px dashed #3A2E1E; border-radius:6px; padding:2.4rem 1rem; text-align:center; font-family:'Inter'; font-size:0.72rem; color:var(--text-dim); margin-top:2rem;}
 .pending-note{font-family:'Inter'; font-size:0.7rem; color:var(--text-dim); opacity:0.6; text-align:center; margin-top:1.4rem;}
+@media(max-width:600px){
+  body{padding-top:60px; padding-bottom:0;}
+  header{top:0; bottom:auto; padding:0.55rem 0.7rem; gap:0.6rem; border-top:none; border-bottom:1px solid var(--gold); background:rgba(6,10,17,0.97);}
+  header .crest{display:none;}
+  .nav-dropdown-wrap{width:auto; margin-left:auto;}
+  .nav-dropdown-btn{width:44px; min-height:44px; justify-content:center; padding:0.65rem; font-size:0;}
+  .nav-dropdown-btn::before{content:'☰'; font-size:1.15rem; color:var(--gold-bright);}
+  .nav-dropdown-btn .chev{display:none;}
+  .nav-dropdown-menu{top:calc(100% + 0.5rem); bottom:auto; left:auto; right:0; width:min(230px,calc(100vw - 1.4rem)); max-height:70vh; overflow-y:auto; padding:0.5rem;}
+  .nav-dropdown-menu button{min-height:42px; padding:0.7rem 0.8rem;}
+  .party-avatars{display:none;}
+  .subhero{min-height:27vh; padding:4.8rem 1rem 1.5rem;}
+  .subhero h1{font-size:clamp(1.55rem,8vw,2.2rem);}
+  section.block{padding:2.3rem 0.9rem;}
+  .hero{min-height:72vh; padding:5rem 1rem 3rem;}
+  .hero h1{font-size:clamp(2rem,12vw,3rem);}
+  .mission-tiers,.guild-roster,.cards-grid{grid-template-columns:1fr; gap:0.85rem;}
+  .guild-roster{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .guild-card.dm-card{grid-column:1 / -1; width:100%;}
+  .guild-member.guild-card{padding:1.1rem 0.45rem 0.8rem;}
+  .guild-card .guild-card-image{width:68px; height:68px;}
+  .guild-card .guild-card-body{padding-top:0.65rem;}
+  .guild-card .guild-card-body h3{font-size:0.82rem;}
+  .guild-card .guild-card-subtitle{font-size:0.61rem;}
+  .guild-title{font-size:1.4rem; margin-bottom:1.4rem;}
+  .guild-group-title{font-size:1.05rem; margin:1.8rem 0 0.8rem;}
+  .party-stage{height:430px;}
+  .party-card{padding:1.4rem;}
+  .party-card .pname{font-size:1.65rem;}
+  .mi-room{padding:1rem;}
+  .mi-room-grid{grid-template-columns:1fr;}
+  .mi-room-box.full{grid-column:auto;}
+  .mochila-resources{display:grid; grid-template-columns:auto auto minmax(52px,76px) auto minmax(52px,76px); gap:0.35rem; align-items:center;}
+  .mochila-resources input{width:100%; min-width:0;}
+  .mochila-resources .mi-save-status{grid-column:1 / -1;}
+  .dm-space-grid{grid-template-columns:1fr;}
+  .map-showcase{padding:0 0.8rem 2.5rem;}
+  .map-showcase-caption{font-size:0.82rem;}
+  .rules-panel{padding:1.1rem 0.8rem; overflow:hidden;}
+  .rules-table{display:block; width:100%;}
+  .rules-table tbody,.rules-table tr{display:block; width:100%;}
+  .rules-table tr{padding:0.55rem 0; border-bottom:1px solid var(--panel-line);}
+  .rules-table td{display:block; width:100%; padding:0.15rem 0; border-bottom:none; overflow-wrap:anywhere;}
+  .rules-table td:last-child{padding-top:0.25rem; text-align:left; white-space:normal; overflow-wrap:anywhere;}
+  .timeline{padding-left:1.7rem;}
+  .timeline-node::before{left:-1.7rem;}
+  .timeline-node{padding-bottom:1.6rem;}
+  .mission-modal{padding:1.4rem;}
+  .mission-modal h3{font-size:1.2rem; padding-right:1.2rem;}
+  .mi-gate{padding:1.4rem;}
+  .dm-dashboard{padding:1rem;}
+  footer{padding:1.7rem 1rem;}
+}
 </style>
 </head>
 <body>
@@ -648,7 +759,6 @@ footer a:hover{color:var(--gold-bright);}
       <button data-view="forge">Herrería</button>
       <button data-view="reglas">Reglas</button>
       <button data-view="forja">Fabricación</button>
-      <button data-view="gremio">Gremio</button>
       <button data-view="colosos">Bestiario</button>
       <button data-view="galeria">Galería de Arte</button>
     </div>
@@ -1214,9 +1324,9 @@ footer a:hover{color:var(--gold-bright);}
 
   <section class="subhero">
     <div class="subhero-inner">
-      <div class="hero-eyebrow">Selecciona quién eres</div>
+      <div class="hero-eyebrow">Gremio unificado</div>
       <h1>Mi Personaje</h1>
-      <p>Tu ficha, tu Mochila. Se guarda sola.</p>
+      <p>La compañía, sus recursos y sus salas privadas.</p>
     </div>
   </section>
 
@@ -1297,6 +1407,7 @@ footer a:hover{color:var(--gold-bright);}
     </div>
     <p class="map-showcase-caption" style="max-width:640px; margin:0 auto 2.5rem; text-align:center;">Aquí se relata la historia del gremio de aventureros del continente El Suelo.</p>
     <div class="timeline">
+      <div class="timeline-node"><h4>Torneo de Piedra Hueca</h4><p>Birsha se alza como campeona del torneo y deja su nombre grabado en la historia del gremio.</p></div>
       <div class="timeline-node"><h4>Axeholm</h4><p>Expulsar a los Guls del antiguo Bastión del Clan Enano.</p></div>
       <div class="timeline-node"><h4>La tumba de Delian</h4><p>Rescatar a la hija del herrero del pueblo de un ritual goblin.</p></div>
       <div class="timeline-node"><h4>Tutorial</h4><p>Sesión introductoria de la campaña, pequeño tutorial.</p></div>
@@ -1316,6 +1427,15 @@ footer a:hover{color:var(--gold-bright);}
     <img id="mapModalImg" style="display:none; width:100%; border-radius:6px; border:1px solid var(--panel-line); margin-bottom:1rem;">
     <p id="mapModalDesc"></p>
     <a class="wa-link" id="mapModalLink" href="#" target="_blank" rel="noopener" style="display:none;">Ver más →</a>
+  </div>
+</div>
+
+<div class="mission-modal-backdrop" id="missionModalBackdrop">
+  <div class="mission-modal">
+    <button class="close-x" id="missionModalClose">✕</button>
+    <h3 id="missionModalTitle"></h3>
+    <div class="mission-modal-sub" id="missionModalSub"></div>
+    <p id="missionModalDesc"></p>
   </div>
 </div>
 
@@ -1414,16 +1534,16 @@ renderLevelChips();
 
 const missions = {
   facil: [
-    {title:'Oneshot fácil', meta:'Nivel 3 · 5 jugadores', desc:'Título y premisa pendientes de definir.'}
+    {title:'Sombras del Fuerte del Último Vigía', meta:'Nivel 4 · 4-5 personajes · 3-4 horas', desc:'Un grupo drow queda dentro de una fortaleza abandonada tras un ataque que salió mal. El gremio debe entrar y detenerlos antes de que escapen de vuelta al inframundo con información peligrosa sobre la superficie.', detail:'La aventura transcurre en las ruinas de un fuerte fronterizo tomado por un comando drow que originalmente iba a usarlo como cabeza de puente para una invasión, hasta que algo dentro del fuerte los sorprendió a ellos primero. El gremio llega cuando los drow, heridos y a la defensiva, intentan asegurar una salida hacia el inframundo antes de que la información que llevan llegue a sus superiores. Combina exploración de un fuerte semien ruinas, un combate central bien armado y un puñado de PNJs secundarios con personalidad propia. Pensada para 4-5 personajes de nivel 4, dura entre 3 y 4 horas.'}
   ],
   medio: [
-    {title:'Oneshot medio', meta:'Nivel 3 · 5 jugadores', desc:'Título y premisa pendientes de definir.'}
+    {title:'Bajo la Rosa Negra', meta:'Nivel 3 · 5 jugadores', desc:'Una posada tiene un fantasma que ronda sus pasillos y un secreto sectario enterrado bajo el piso. El gremio debe bajar a resolver ambas cosas y cerrar una tragedia de décadas atrás.', detail:'El gremio llega a una posada con fama de estar embrujada, contratado para investigar apariciones que llevan años inquietando al pueblo. La familia que regenta el lugar tiene sus propias tensiones y secretos, y a medida que el gremio indaga queda claro que lo que ronda la posada tiene raíz en algo que pasó hace mucho tiempo bajo el edificio mismo. Combina investigación social con los PNJs de la posada, exploración de espacios ocultos y un enfrentamiento final con lo que sea que hayan estado despertando sin darse cuenta.'}
   ],
   dificil: [
-    {title:'La Casa de la Muerte', meta:'Nivel 3 · 5 jugadores', desc:'Adaptación oneshot del módulo clásico, ajustada a nivel 3.'}
+    {title:'La Casa de la Muerte', meta:'Nivel 3 · 5 jugadores', desc:'Un caserón abandonado en las afueras del pueblo tiene fama de estar embrujado y de haberse tragado a varios chicos que entraron a explorarlo. El gremio entra a buscar respuestas y a lo que quede de ellos.', detail:'El gremio llega a un pueblo donde una mansión lleva años vacía y rodeada de rumores oscuros: ruidos, niños que desaparecieron y familiares que nunca volvieron a hablar del tema. Al entrar, la casa se revela mucho más grande de lo que parece desde afuera, con varios niveles que esconden capas de una historia familiar que se fue pudriendo con el tiempo. Combina exploración ambiental cargada de pistas narrativas, encuentros con lo sobrenatural que van escalando en intensidad y un descenso final a algo mucho peor debajo de los cimientos. Es intensa y puede resultar letal si no se juega con cuidado. Tiene fama de picar más duro de lo que su nivel sugiere.'}
   ],
   especial: [
-    {title:'Torneo del Coliseo', meta:'6 vs 6 · Formato torneo', desc:'Un torneo por equipos en un coliseo, con un arma rara en juego. El arma se personalizará según quién gane.'}
+    {title:'Rescate en la nieve', meta:'Misión especial', desc:'Una caravana de mercaderes desapareció en las rutas de montaña hace días. El gremio se divide en dos equipos para rastrearla antes de que el invierno se cierre del todo.', detail:'La premisa es simple en la superficie: una caravana mercante no llegó a destino y nadie sabe si fue el clima, bandidos, o algo peor. A medida que ambos grupos avanzan por rutas distintas de la misma cordillera, empiezan a toparse con señales de que la región está más tensa de lo normal, tensión que tiene que ver con la vieja fricción entre Creyentes y Racionalistas, que en esta zona no es solo una diferencia de opinión. Cada grupo va a acumular piezas de una imagen más grande que solo se completa cuando se vuelven a juntar. Hacia el final, hay un momento de gran escala pensado para dejar una marca: algo que se ve a la distancia y que deja claro que esta cordillera no es tan "segura" como el mapa sugiere.'}
   ]
 };
 function renderMissions(){
@@ -1436,8 +1556,8 @@ function renderMissions(){
       el.innerHTML = `<p class="mission-empty">Aún no hay misiones registradas aquí.</p>`;
       return;
     }
-    el.innerHTML = list.map(m => `
-      <div class="mission-entry">
+    el.innerHTML = list.map((m, index) => `
+      <div class="mission-entry clickable" data-mission-key="${key}" data-mission-index="${index}" tabindex="0" role="button">
         <h4>${m.title}</h4>
         <div class="m-meta">${m.meta}</div>
         <div class="m-desc">${m.desc}</div>
@@ -1446,6 +1566,21 @@ function renderMissions(){
   });
 }
 renderMissions();
+
+function openMissionModal(mission){
+  document.getElementById('missionModalTitle').textContent = mission.title;
+  document.getElementById('missionModalSub').textContent = mission.meta;
+  document.getElementById('missionModalDesc').textContent = mission.detail || mission.desc;
+  document.getElementById('missionModalBackdrop').classList.add('active');
+}
+function closeMissionModal(){ document.getElementById('missionModalBackdrop').classList.remove('active'); }
+document.getElementById('missionModalClose').addEventListener('click', closeMissionModal);
+document.getElementById('missionModalBackdrop').addEventListener('click', e=>{ if(e.target.id === 'missionModalBackdrop') closeMissionModal(); });
+document.querySelectorAll('.mission-entry.clickable').forEach(entry=>{
+  const open = ()=>openMissionModal(missions[entry.dataset.missionKey][Number(entry.dataset.missionIndex)]);
+  entry.addEventListener('click', open);
+  entry.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+});
 
 /* ---------------- FABRICACIÓN ----------------
    Sistema de precios: coste = ((valor materiales) + (horas listadas × 3 PO/hora de mano de obra)) × 1.2, redondeado a 5, mínimo 10.
@@ -1921,6 +2056,12 @@ function cancelForjaSlot(catKey){
 }
 
 const changelog = [
+  {date:'13 sep', text:'Nueva experiencia responsive: la página adapta automáticamente navegación, tarjetas, reglas y salas para móvil o PC desde la misma dirección.'},
+  {date:'13 sep', text:'Salas personales ampliadas: cajas de texto autoajustables, recursos mejor organizados en móvil y acceso privado actualizado para los personajes.'},
+  {date:'13 sep', text:'Añadido el sistema de karma de Chank-kla en Instinto de Colmena y ajustada la progresión de culto de Birsha a 3 puntos, con Bautizo de sangre como siguiente recompensa.'},
+  {date:'13 sep', text:'Panel de Gremios reorganizado: Vinculo de las ocho sombras y Los Otros muestran tarjetas con retrato, identidad y acceso a sus salas personales.'},
+  {date:'13 sep', text:'Misiones renovadas: nuevas aventuras, descripciones completas al pulsar cada tarjeta y misión especial Rescate en la nieve.'},
+  {date:'13 sep', text:'Historia actualizada con el Torneo de Piedra Hueca, donde Birsha se proclama campeona.'},
   {date:'6 sep', text:'Añadido un botón para volver al selector desde la contraseña de la sala de otro personaje.'},
   {date:'6 sep', text:'Pulido visual general: fondo ambiental animado, iluminación reactiva al cursor, transiciones de entrada, splash más elaborado y respeto por reducción de movimiento.'},
   {date:'6 sep', text:'Sala Personal refinada: Recursos integrados en Mochila, fondo automático mediante imagen, tramos ampliables tipo Historia, misiones de Birsha con tarjetas y barra de puntos de culto.'},
@@ -2122,13 +2263,17 @@ function renderDMGate(container, back){
 function renderDMNotes(container, back){
   container.innerHTML = `
     ${back}
-    <div class="dm-notes-box">
+    <div class="dm-notes-box dm-dashboard">
       <div style="display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-        <h3>Notas privadas</h3>
+        <h3>Dungeon Master</h3>
         <button class="mi-switch" id="dmUndoBtn" style="margin-bottom:0;" disabled>↺ Deshacer último cambio</button>
       </div>
       <div class="dm-warn">Esto vive en la misma base de datos pública, protegido solo por esta contraseña en el navegador — no lo uses para nada que no puedas permitirte que se filtre.</div>
-      <textarea id="dmNotesText" placeholder="Cargando..."></textarea>
+      <div class="dm-space-grid">
+        <label>Misiones<textarea id="dmNotesText" placeholder="Misiones..."></textarea></label>
+        <label>Balance<textarea id="dmBalanceText" placeholder="Balance..."></textarea></label>
+        <label>Tareas<textarea id="dmTasksText" placeholder="Tareas..."></textarea></label>
+      </div>
       <div class="mochila-status" id="dmNotesStatus"></div>
     </div>
   `;
@@ -2136,6 +2281,13 @@ function renderDMNotes(container, back){
   const textarea = document.getElementById('dmNotesText');
   const status = document.getElementById('dmNotesStatus');
   const undoBtn = document.getElementById('dmUndoBtn');
+  ['dmNotesText','dmBalanceText','dmTasksText'].forEach(id=>{
+    const space = document.getElementById(id);
+    const key = 'ctt_dm_space_' + id;
+    const saved = localStorage.getItem(key);
+    if(saved !== null) space.value = saved;
+    space.addEventListener('input', ()=>localStorage.setItem(key, space.value));
+  });
   textarea.disabled = true;
   status.textContent = 'Cargando...';
   let lastSaved = '';
@@ -2149,6 +2301,7 @@ function renderDMNotes(container, back){
 
   window.ctFirebase.loadDMNotes().then(data=>{
     textarea.value = data.text || '';
+    container.querySelectorAll('textarea').forEach(autoGrowTextarea);
     lastSaved = data.text || '';
     prevSaved = data.prevText || '';
     undoBtn.disabled = !prevSaved;
@@ -2237,6 +2390,14 @@ function showToast(msg){
   toastTimer = setTimeout(()=>{ t.classList.remove('show'); }, 2200);
 }
 
+function autoGrowTextarea(textarea){
+  textarea.style.height = 'auto';
+  textarea.style.height = `${textarea.scrollHeight}px`;
+}
+document.addEventListener('input', e=>{
+  if(e.target.matches('textarea')) autoGrowTextarea(e.target);
+});
+
 document.addEventListener('mousemove', (e)=>{
   document.body.style.setProperty('--ambient-x', `${(e.clientX / window.innerWidth) * 100}%`);
   document.body.style.setProperty('--ambient-y', `${(e.clientY / window.innerHeight) * 100}%`);
@@ -2280,6 +2441,7 @@ function goToView(target){
   document.getElementById('view-historia').classList.toggle('active', target==='historia');
   document.getElementById('view-forja').classList.toggle('active', target==='forja');
   if(target==='mi') renderMiPersonaje();
+  if(target==='historia') openMissionModal(missions.especial[0]);
   if(target==='forja') renderForja();
   window.scrollTo({top:0, behavior:'instant'});
 }
@@ -2555,6 +2717,10 @@ function renderMiPersonaje(){
     renderGremioBFlow(container);
     return;
   }
+  if(saved === 'gremio-overview' || !saved){
+    renderGuildOverview(container);
+    return;
+  }
   const chosen = window.ctParty.find(p => p.id === saved);
   if(!chosen){
     renderCharPicker(container);
@@ -2563,6 +2729,67 @@ function renderMiPersonaje(){
   } else {
     renderCharPanel(container, chosen);
   }
+}
+
+function guildResourceKey(id, resource){ return `ctt_guild_${id}_${resource}`; }
+const guildDisplay = {
+  birsha:['Birsha','Anómalo simbólico, Brujo Heraldo del Velo'],
+  temis:['Temis','Elfo de los Bosques, Clérigo del Engaño'],
+  cinto:['ACC-05 Cinto','Forjado, Monje Borracho'],
+  chankkla:['Chank-kla','Thri-kreen, Guerrero Campeón'],
+  vin:['Vin','Elfa Eladrin, Mago del Canto de la Hoja'],
+  therian:['Therian','Dracónido Amatista, Guardián Vigilante Gris']
+};
+const gremioBDisplay = {
+  'John C.':['John C.','Humano, Investigador Exterminador'],
+  Razon:['Razon','Enano, Pugilista Cuadrilátero'],
+  H:['No name','Vasija Metálica, Bárbaro Guardián Espiritual'],
+  Mus:['Mus','Replicante de Lorwyn, Círculo de la Luna'],
+  Pistol:['Pistol','Hombre Lagarto, Pistolero de Precisión'],
+  Adalman:['Adalman','Necropolitano, Nigromante Maestro Pálido']
+};
+const guildBorderColors = {
+  birsha:'#B32635', temis:'#7BCB8B', cinto:'#B98A63', chankkla:'#E08B2B', vin:'#245A8A', therian:'#8E5BB7',
+  'gremiob_johnc':'#5A3825', 'gremiob_razon':'#C9826B', 'gremiob_h':'#80868B',
+  'gremiob_mus':'#55B7A5', 'gremiob_pistol':'#176B3A', 'gremiob_adalman':'#27B83A', dm:'#B026FF'
+};
+function guildCardId(member){ return member.id || `gremiob_${member.name.toLowerCase().replace(/[^a-z0-9]/g,'')}`; }
+function guildMemberCard(member, isOther){
+  const display = (isOther ? gremioBDisplay[member.name] : guildDisplay[member.id]) || [member.name, `${member.race}, ${member.klass}`];
+  const identity = guildCardId(member);
+  const nameClass = display[0] === 'No name' ? ' no-name' : '';
+  return `<article class="guild-member guild-card${nameClass}" data-guild-member="${identity}" data-other="${isOther}" style="--member-color:${guildBorderColors[identity] || member.color || 'var(--gold)'};">
+    <div class="guild-card-image" style="background-image:url('data:image/jpeg;base64,${member.img}')"></div>
+    <div class="guild-card-body"><h3>${display[0]}</h3><div class="guild-card-subtitle"><span>${display[1].split(',')[0].trim()}</span><span>${display[1].split(',').slice(1).join(',').trim()}</span></div></div>
+  </article>`;
+}
+function renderGuildOverview(container){
+  container.innerHTML = `<h2 class="guild-title">Gremios</h2>
+    <div class="guild-group-title">Vinculo de las ocho sombras</div>
+    <div class="guild-roster">${window.ctParty.map(member=>guildMemberCard(member, false)).join('')}</div>
+    <div class="guild-group-title">Los Otros</div>
+    <div class="guild-roster">${gremioB.map(member=>guildMemberCard(member, true)).join('')}</div>
+    <div class="guild-group-title">Dungeon Master</div>
+    <div class="guild-roster"><article class="guild-member guild-card dm-card" data-dm-card style="--member-color:${guildBorderColors.dm};"><div class="guild-card-image" style="background-image:url('data:image/jpeg;base64,${DM_IMG}')"></div></article></div>`;
+  container.querySelectorAll('[data-guild-member]').forEach(button=>button.addEventListener('click', ()=>{
+    const member = button.dataset.other === 'true' ? gremioB.find(item=>guildCardId(item) === button.dataset.guildMember) : window.ctParty.find(item=>item.id === button.dataset.guildMember);
+    if(button.dataset.other === 'true') renderBMemberGate(container, member);
+    else { localStorage.setItem(MI_KEY, member.id); renderMiPersonaje(); }
+  }));
+  document.querySelector('[data-dm-card]').addEventListener('click', ()=>{ localStorage.setItem(MI_KEY, 'dm'); renderDMFlow(container); });
+}
+function renderBMemberGate(container, member){
+  container.innerHTML = `<div class="mi-gate"><h2>Sala de ${member.name}</h2><p>Introduce la contraseña común del Gremio B.</p><input type="password" id="guildBPassword" placeholder="Contraseña"><button id="guildBEnter">Entrar</button><button class="mi-gate-back" id="guildBBack">← Volver al gremio</button><div class="mi-gate-error" id="guildBError"></div></div>`;
+  const input = document.getElementById('guildBPassword');
+  const check = ()=>{ if(input.value.trim() === '2312') renderBMemberDetail(container, member); else document.getElementById('guildBError').textContent = 'Contraseña incorrecta.'; };
+  document.getElementById('guildBEnter').addEventListener('click', check);
+  document.getElementById('guildBBack').addEventListener('click', ()=>renderGuildOverview(container));
+  input.addEventListener('keydown', e=>{ if(e.key === 'Enter') check(); });
+  input.focus();
+}
+function renderBMemberDetail(container, member){
+  const display = gremioBDisplay[member.name] || [member.name, `${member.race}, ${member.klass}`];
+  renderCharPanel(container, {id:guildCardId(member), name:display[0], race:member.race, klass:member.klass, color:member.color, img:member.img});
 }
 
 function renderCharGate(container, p){
@@ -2578,7 +2805,9 @@ function renderCharGate(container, p){
   const input = document.getElementById('charRoomPassword');
   const error = document.getElementById('charRoomError');
   const enter = ()=>{
-    if(input.value.trim().toLowerCase() === p.name.trim().toLowerCase()){
+    const privatePasswords = {chankkla:'4769', birsha:'179274'};
+    const password = privatePasswords[p.id] || p.name.trim().toLowerCase();
+    if(input.value.trim().toLowerCase() === password.toLowerCase()){
       sessionStorage.setItem('ctt_room_auth_'+p.id, '1');
       renderMiPersonaje();
     } else {
@@ -2661,15 +2890,15 @@ function renderCharPanel(container, p){
           <button class="room-add" id="miAddPrivateSection" type="button">+ Añadir tramo</button>
           <div class="mi-save-status" id="miPrivateStatus"></div>
         </div>
-        ${p.id === 'birsha' ? `
+        ${p.id === 'birsha' || p.id === 'chankkla' ? `
         <div class="mi-room-box full mission-tier secret-missions" style="--tier-color:${isBirsha ? 'var(--r-purple)' : 'var(--room-color)'};">
-          <h3>${isBirsha ? 'Misiones secretas: Culto de Baco' : 'Misiones privadas'}</h3>
-          <div class="tier-sub">${isBirsha ? 'Reclutamiento y recompensas especiales' : 'Misiones y contenido privado'}</div>
+          <h3>${isBirsha ? 'Misiones secretas: Culto de Baco' : 'Instinto de Colmena'}</h3>
+          <div class="tier-sub">${isBirsha ? 'Reclutamiento y recompensas especiales' : 'Misión especial · Karma'}</div>
           <div id="miCultSections">
-            <div class="mission-entry"><h4>${isBirsha ? 'Misión secreta' : 'Misión privada'}</h4><div class="m-meta">Pendiente · ${isBirsha ? 'Culto de Baco' : p.name}</div><textarea id="miCultContent" placeholder="El DM añadirá aquí tus misiones..."></textarea></div>
+            <div class="mission-entry">${isBirsha ? '' : '<div class="m-desc">Libera a tu pueblo de la esclavitud para ganar Karma positivo o entrega y somete a tu pueblo para ganar Karma Negativo.</div>'}<textarea id="miCultContent" placeholder="El DM añadirá aquí tus misiones..."></textarea></div>
           </div>
           <button class="room-add" id="miAddCultSection" type="button">+ Añadir misión</button>
-          ${isBirsha ? `<div class="recruit-progress"><div class="recruit-progress-top"><span>Puntos de culto</span><span><b id="miCultRecruitsLabel">0</b> / 10</span></div><div class="recruit-progress-track"><div class="recruit-progress-fill" id="miCultProgressFill"></div></div><input id="miCultRecruits" type="hidden" value="0"></div>` : ''}
+          ${isBirsha ? `<div class="recruit-progress"><div class="recruit-progress-top"><span>Puntos de culto</span><span><b id="miCultRecruitsLabel">0</b> / 3</span></div><div class="recruit-progress-track"><div class="recruit-progress-fill" id="miCultProgressFill"></div></div><div class="recruit-reward">Siguiente recompensa: Bautizo de sangre</div><input id="miCultRecruits" type="hidden" value="0"></div>` : `<div class="karma-panel"><div class="karma-label"><span>Karma</span><span class="karma-value" id="miKarmaLabel">0</span></div><div class="karma-track"><input id="miKarma" type="range" min="-20" max="20" step="1" value="0" aria-label="Karma"><span class="karma-thumb" id="miKarmaThumb"></span></div><div class="karma-markers"><span>-20</span><span>-10</span><span>-5</span><span>-3</span><span>0</span><span>+3</span><span>+5</span><span>+10</span><span>+20</span></div></div>`}
           <div class="mi-save-status" id="miCultStatus"></div>
         </div>` : ''}
         <div class="mi-room-box mi-image-box">
@@ -2705,6 +2934,9 @@ function renderCharPanel(container, p){
   const addCultSection = document.getElementById('miAddCultSection');
   const cultProgressFill = document.getElementById('miCultProgressFill');
   const cultRecruitsLabel = document.getElementById('miCultRecruitsLabel');
+  const karmaInput = document.getElementById('miKarma');
+  const karmaLabel = document.getElementById('miKarmaLabel');
+  const karmaThumb = document.getElementById('miKarmaThumb');
   textarea.value = '';
   textarea.disabled = true;
   status.textContent = 'Cargando...';
@@ -2732,12 +2964,14 @@ function renderCharPanel(container, p){
         updateCultProgress();
         if(isBirsha && data.cultRecruits !== 0) window.ctFirebase.saveCharData(p.id, {cultRecruits:0});
       }
+      if(karmaInput){ karmaInput.value = Number.isInteger(data.karma) ? Math.max(-20, Math.min(20, data.karma)) : 0; updateKarma(); }
     }
     if(data.roomImage){ applyRoomBackground(data.roomImage); roomImagePreview.src = data.roomImage; roomImagePreview.style.display = 'block'; }
     const equipo = data.equipo || {};
     equipoInputs.forEach(inp=>{
       if(equipo[inp.dataset.slot]) inp.value = equipo[inp.dataset.slot];
     });
+    container.querySelectorAll('textarea').forEach(autoGrowTextarea);
   }).catch(()=>{
     status.textContent = 'No se pudo cargar. Revisa tu conexión.';
     textarea.disabled = false;
@@ -2781,9 +3015,15 @@ function renderCharPanel(container, p){
 
   function updateCultProgress(){
     if(!cultRecruitsLabel) return;
-    const points = Math.max(0, Math.min(10, parseInt(cultRecruits.value,10)||0));
+    const points = Math.max(0, Math.min(3, parseInt(cultRecruits.value,10)||0));
     cultRecruitsLabel.textContent = points;
-    cultProgressFill.style.width = `${points * 10}%`;
+    cultProgressFill.style.width = `${points * 33.3333}%`;
+  }
+  function updateKarma(){
+    if(!karmaInput || !karmaLabel || !karmaThumb) return;
+    const value = Math.max(-20, Math.min(20, parseInt(karmaInput.value,10)||0));
+    karmaLabel.textContent = value > 0 ? `+${value}` : value;
+    karmaThumb.style.left = `${((value + 20) / 40) * 100}%`;
   }
   if(cultContent){
     let cultTimer;
@@ -2793,9 +3033,17 @@ function renderCharPanel(container, p){
       cultStatus.textContent = 'Guardando...'; clearTimeout(cultTimer);
       cultTimer = setTimeout(()=>savePrivateData({cultContent:cultContent.value, ...(cultRecruits ? {cultRecruits:Math.max(0, parseInt(cultRecruits.value,10)||0)} : {})}, cultStatus, isBirsha ? 'Misiones secretas guardadas' : 'Misiones guardadas'), 700);
     }));
+    if(karmaInput){
+      karmaInput.addEventListener('input', ()=>{
+        updateKarma();
+        cultStatus.textContent = 'Guardando...'; clearTimeout(cultTimer);
+        cultTimer = setTimeout(()=>savePrivateData({karma:parseInt(karmaInput.value,10)||0}, cultStatus, 'Karma guardado'), 500);
+      });
+      updateKarma();
+    }
     addCultSection.addEventListener('click', ()=>{
       const block = document.createElement('div'); block.className = 'mission-entry';
-      block.innerHTML = `<h4>${isBirsha ? 'Misión secreta' : 'Misión privada'}</h4><div class="m-meta">Pendiente · ${isBirsha ? 'Culto de Baco' : p.name}</div><textarea placeholder="Describe la misión..."></textarea>`;
+      block.innerHTML = '<textarea placeholder="Describe la misión..."></textarea>';
       cultSections.appendChild(block); block.querySelector('textarea').focus();
     });
   }
