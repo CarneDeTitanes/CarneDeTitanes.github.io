@@ -183,6 +183,8 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .secret-missions .mission-entry textarea{min-height:75px; margin-top:0.45rem;}
 .recruit-progress{margin-top:0.9rem;}
 .recruit-progress-top{display:flex; justify-content:space-between; font-family:'Inter'; font-size:0.7rem; color:var(--text-dim);}
+.recruit-progress-top input[type=number]{width:3.2rem; margin:0 0.25rem 0 0.5rem; padding:0.22rem 0.3rem; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:4px; color:var(--gold-bright); font-family:'Inter'; font-size:0.72rem; text-align:center;}
+.recruit-progress-top input[type=number]:focus{outline:none; border-color:var(--room-color,var(--gold));}
 .recruit-progress-track{height:8px; margin-top:0.4rem; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:999px; overflow:hidden;}
 .recruit-progress-fill{height:100%; width:0; background:linear-gradient(90deg,var(--r-purple),var(--gold-bright)); transition:width 0.25s ease;}
 .recruit-reward{font-family:'Inter'; font-size:0.72rem; color:var(--gold-bright); margin-top:0.65rem;}
@@ -285,6 +287,10 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .mission-modal p{font-family:'Spectral'; color:var(--text-dim); font-size:0.98rem;}
 .mission-modal .close-x{position:absolute; top:0.8rem; right:1rem; cursor:pointer; color:var(--text-dim); font-size:1.2rem; background:none; border:none;}
 .mission-modal .close-x:hover{color:var(--gold-bright);}
+.vin-puzzle-link{display:inline-block; margin-top:0.7rem; padding:0; background:none; border:none; color:var(--gold-bright); font-family:'Cinzel'; font-size:0.86rem; text-decoration:underline; cursor:pointer;}
+.vin-puzzle-link:hover{color:var(--text);}
+.vin-puzzle-modal{width:min(760px,100%); text-align:center;}
+.vin-puzzle-modal img{display:block; width:100%; max-height:72vh; object-fit:contain; margin-top:1rem; background:var(--bg-deep); border:1px solid var(--panel-line); border-radius:5px;}
 .guild-title{text-align:center; color:var(--gold-bright); font-size:1.8rem; margin-bottom:2rem;}
 .guild-group-title{font-family:'Cinzel'; color:var(--text); font-size:1.25rem; margin:2.4rem 0 1rem; text-align:center;}
 .guild-roster{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem;}
@@ -1440,6 +1446,14 @@ footer a:hover{color:var(--gold-bright);}
     <h3 id="missionModalTitle"></h3>
     <div class="mission-modal-sub" id="missionModalSub"></div>
     <p id="missionModalDesc"></p>
+  </div>
+</div>
+
+<div class="mission-modal-backdrop" id="vinPuzzleModalBackdrop">
+  <div class="mission-modal vin-puzzle-modal">
+    <button class="close-x" id="vinPuzzleModalClose">✕</button>
+    <h3>Puzzle</h3>
+    <img id="vinPuzzleModalImg" src="vin-puzzle.svg" alt="Puzzle de El Rastro de Dante">
   </div>
 </div>
 
@@ -2806,7 +2820,7 @@ function renderCharGate(container, p){
   const input = document.getElementById('charRoomPassword');
   const error = document.getElementById('charRoomError');
   const enter = ()=>{
-    const privatePasswords = {chankkla:'4769', birsha:'179274'};
+    const privatePasswords = {chankkla:'4769', birsha:'179274', therian:'5005', vin:'Dante'};
     const password = privatePasswords[p.id] || p.name.trim().toLowerCase();
     if(input.value.trim().toLowerCase() === password.toLowerCase()){
       sessionStorage.setItem('ctt_room_auth_'+p.id, '1');
@@ -2891,15 +2905,15 @@ function renderCharPanel(container, p){
           <button class="room-add" id="miAddPrivateSection" type="button">+ Añadir tramo</button>
           <div class="mi-save-status" id="miPrivateStatus"></div>
         </div>
-        ${p.id === 'birsha' || p.id === 'chankkla' ? `
+        ${p.id === 'birsha' || p.id === 'chankkla' || p.id === 'vin' ? `
         <div class="mi-room-box full mission-tier secret-missions" style="--tier-color:${isBirsha ? 'var(--r-purple)' : 'var(--room-color)'};">
-          <h3>${isBirsha ? 'Misiones secretas: Culto de Baco' : 'Instinto de Colmena'}</h3>
-          <div class="tier-sub">${isBirsha ? 'Reclutamiento y recompensas especiales' : 'Misión especial · Karma'}</div>
+          <h3>${isBirsha ? 'Misiones secretas: Culto de Baco' : p.id === 'vin' ? 'El Rastro de Dante' : 'Instinto de Colmena'}</h3>
+          <div class="tier-sub">${isBirsha ? 'Reclutamiento y recompensas especiales' : p.id === 'vin' ? 'Misión secreta' : 'Misión especial · Karma'}</div>
           <div id="miCultSections">
-            <div class="mission-entry">${isBirsha ? '' : '<div class="m-desc">Libera a tu pueblo de la esclavitud para ganar Karma positivo o entrega y somete a tu pueblo para ganar Karma Negativo.</div>'}<textarea id="miCultContent" placeholder="El DM añadirá aquí tus misiones..."></textarea></div>
+            <div class="mission-entry">${isBirsha || p.id === 'vin' ? '' : '<div class="m-desc">Libera a tu pueblo de la esclavitud para ganar Karma positivo o entrega y somete a tu pueblo para ganar Karma Negativo.</div>'}<textarea id="miCultContent" placeholder="El DM añadirá aquí tus misiones..."></textarea>${p.id === 'vin' ? '<button type="button" class="vin-puzzle-link" id="vinPuzzleLink">Puzzle</button>' : ''}</div>
           </div>
           <button class="room-add" id="miAddCultSection" type="button">+ Añadir misión</button>
-          ${isBirsha ? `<div class="recruit-progress"><div class="recruit-progress-top"><span>Puntos de culto</span><span><b id="miCultRecruitsLabel">0</b> / 3</span></div><div class="recruit-progress-track"><div class="recruit-progress-fill" id="miCultProgressFill"></div></div><div class="recruit-reward">Siguiente recompensa: Bautizo de sangre</div><input id="miCultRecruits" type="hidden" value="0"></div>` : `<div class="karma-panel"><div class="karma-label"><span>Karma</span><span class="karma-value" id="miKarmaLabel">0</span></div><div class="karma-track"><input id="miKarma" type="range" min="-20" max="20" step="1" value="0" aria-label="Karma"><span class="karma-thumb" id="miKarmaThumb"></span></div><div class="karma-markers"><span>-20</span><span>-10</span><span>-5</span><span>-3</span><span>0</span><span>+3</span><span>+5</span><span>+10</span><span>+20</span></div></div>`}
+          ${isBirsha ? `<div class="recruit-progress"><div class="recruit-progress-top"><span>Puntos de culto</span><span><b id="miCultRecruitsLabel">0</b> / 3</span></div><div class="recruit-progress-track"><div class="recruit-progress-fill" id="miCultProgressFill"></div></div><div class="recruit-reward">Siguiente recompensa: Bautizo de sangre</div><input id="miCultRecruits" type="hidden" value="0"></div>` : p.id === 'vin' ? `<div class="recruit-progress"><div class="recruit-progress-top"><span>Ecos Robados</span><span><input id="miCultRecruits" type="number" min="0" max="10" step="1" value="0" aria-label="Ecos Robados"> / 10</span></div><div class="recruit-progress-track"><div class="recruit-progress-fill" id="miCultProgressFill"></div></div></div>` : `<div class="karma-panel"><div class="karma-label"><span>Karma</span><span class="karma-value" id="miKarmaLabel">0</span></div><div class="karma-track"><input id="miKarma" type="range" min="-20" max="20" step="1" value="0" aria-label="Karma"><span class="karma-thumb" id="miKarmaThumb"></span></div><div class="karma-markers"><span>-20</span><span>-10</span><span>-5</span><span>-3</span><span>0</span><span>+3</span><span>+5</span><span>+10</span><span>+20</span></div></div>`}
           <div class="mi-save-status" id="miCultStatus"></div>
         </div>` : ''}
         <div class="mi-room-box mi-image-box">
@@ -2928,6 +2942,9 @@ function renderCharPanel(container, p){
   const resourcesStatus = document.getElementById('miResourcesStatus');
   const roomImage = document.getElementById('miRoomImage');
   const roomImagePreview = document.getElementById('miRoomImagePreview');
+  const vinPuzzleLink = document.getElementById('vinPuzzleLink');
+  const vinPuzzleModal = document.getElementById('vinPuzzleModalBackdrop');
+  const vinPuzzleModalImg = document.getElementById('vinPuzzleModalImg');
   const cultContent = document.getElementById('miCultContent');
   const cultRecruits = document.getElementById('miCultRecruits');
   const cultStatus = document.getElementById('miCultStatus');
@@ -3012,13 +3029,21 @@ function renderCharPanel(container, p){
     reader.readAsDataURL(file);
   });
 
+  if(vinPuzzleLink){
+    vinPuzzleLink.addEventListener('click', ()=>vinPuzzleModal.classList.add('active'));
+    document.getElementById('vinPuzzleModalClose').addEventListener('click', ()=>vinPuzzleModal.classList.remove('active'));
+    vinPuzzleModal.addEventListener('click', e=>{ if(e.target === vinPuzzleModal) vinPuzzleModal.classList.remove('active'); });
+  }
+
   function applyRoomBackground(image){ room.classList.add('has-room-image'); room.style.setProperty('--room-image', `url("${image}")`); }
 
   function updateCultProgress(){
-    if(!cultRecruitsLabel) return;
-    const points = Math.max(0, Math.min(3, parseInt(cultRecruits.value,10)||0));
-    cultRecruitsLabel.textContent = points;
-    cultProgressFill.style.width = `${points * 33.3333}%`;
+    if(!cultRecruits || !cultProgressFill) return;
+    const maxPoints = p.id === 'vin' ? 10 : 3;
+    const points = Math.max(0, Math.min(maxPoints, parseInt(cultRecruits.value,10)||0));
+    if(cultRecruitsLabel) cultRecruitsLabel.textContent = points;
+    cultRecruits.value = points;
+    cultProgressFill.style.width = `${(points / maxPoints) * 100}%`;
   }
   function updateKarma(){
     if(!karmaInput || !karmaLabel || !karmaThumb) return;
@@ -3032,7 +3057,7 @@ function renderCharPanel(container, p){
     cultInputs.forEach(input=>input.addEventListener('input', ()=>{
       updateCultProgress();
       cultStatus.textContent = 'Guardando...'; clearTimeout(cultTimer);
-      cultTimer = setTimeout(()=>savePrivateData({cultContent:cultContent.value, ...(cultRecruits ? {cultRecruits:Math.max(0, parseInt(cultRecruits.value,10)||0)} : {})}, cultStatus, isBirsha ? 'Misiones secretas guardadas' : 'Misiones guardadas'), 700);
+      cultTimer = setTimeout(()=>savePrivateData({cultContent:cultContent.value, ...(cultRecruits ? {cultRecruits:Math.max(0, Math.min(p.id === 'vin' ? 10 : 3, parseInt(cultRecruits.value,10)||0))} : {})}, cultStatus, isBirsha ? 'Misiones secretas guardadas' : 'Misiones guardadas'), 700);
     }));
     if(karmaInput){
       karmaInput.addEventListener('input', ()=>{
