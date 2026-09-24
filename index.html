@@ -306,6 +306,8 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .guild-member.guild-card{padding:1.5rem 0.8rem 1rem; overflow:hidden; cursor:pointer; border-color:var(--member-color,var(--panel-line)); transition:transform 0.2s, border-color 0.2s;}
 .guild-member.guild-card:hover{transform:translateY(-4px); border-color:var(--member-color,var(--panel-line));}
 .guild-card .guild-card-image{width:82px; height:82px; margin:0 auto; border-radius:50%; background-size:cover; background-position:center top; border:2px solid var(--member-color,var(--gold));}
+.empty-guild-card{cursor:default !important;}
+.empty-guild-card .guild-card-image{display:grid; place-items:center; background:var(--panel); color:var(--gold-bright); font:2rem 'Cinzel',serif;}
 .guild-card .guild-card-body{padding:0.9rem 0.2rem 0.1rem; text-align:center;}
 .guild-card .guild-card-body h3{font-size:1.15rem; margin-bottom:0.25rem;}
 .guild-card .guild-card-subtitle{font-family:'Inter'; font-size:0.72rem; line-height:1.45; color:var(--text-dim);}
@@ -318,7 +320,7 @@ section.block{padding:3.2rem 1.5rem; max-width:1080px; margin:0 auto;}
 .dead-tribute-title{text-align:center; font-family:'Cinzel'; font-size:1.35rem; color:var(--gold-bright); letter-spacing:0.08em; text-transform:uppercase;}
 .dead-tribute-subtitle{text-align:center; font-family:'Spectral'; font-style:italic; color:var(--text-dim); font-size:0.95rem; margin:0.45rem 0 1.4rem;}
 .dead-tribute-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.8rem;}
-.dead-tribute-card{background:linear-gradient(145deg,rgba(0,0,0,0.3),var(--panel)); border:2px solid #000; border-radius:8px; padding:1rem; display:grid; grid-template-columns:96px minmax(0,1fr) 120px; gap:1rem; align-items:center; box-shadow:0 14px 35px rgba(0,0,0,0.28); min-width:0;}
+.dead-tribute-card{background:linear-gradient(145deg,rgba(0,0,0,0.3),var(--panel)); border:2px solid var(--tribute-color,#000); border-radius:8px; padding:1rem; display:grid; grid-template-columns:96px minmax(0,1fr) 120px; gap:1rem; align-items:center; box-shadow:0 14px 35px rgba(0,0,0,0.28); min-width:0;}
 .dead-tribute-card:only-child{grid-column:1 / -1; width:min(620px,100%); justify-self:center;}
 .dead-tribute-card .tribute-image{width:96px; height:126px; border:2px solid #000; border-radius:5px; background-size:cover; background-position:center top; filter:saturate(0.7) contrast(1.05);}
 .dead-tribute-card h3{font-size:1.25rem; color:var(--gold-bright); margin-bottom:0.45rem; text-align:left;}
@@ -2811,14 +2813,14 @@ function renderGuildOverview(container){
     <div class="guild-group-title">Vinculo de las ocho sombras</div>
     <div class="guild-roster">${window.ctParty.map(member=>guildMemberCard(member, false)).join('')}</div>
     <div class="guild-group-title">Los Otros</div>
-    <div class="guild-roster">${gremioB.map(member=>guildMemberCard(member, true)).join('')}</div>
+    <div class="guild-roster">${gremioB.filter(member=>member.name !== 'Pistol').map(member=>guildMemberCard(member, true)).join('')}<article class="guild-member guild-card empty-guild-card" aria-label="Miembro desconocido"><div class="guild-card-image">?</div></article></div>
     <div class="guild-group-title">Dungeon Master</div>
     <div class="guild-roster"><article class="guild-member guild-card dm-card" data-dm-card style="--member-color:${guildBorderColors.dm};"><div class="guild-card-image" style="background-image:url('data:image/jpeg;base64,${DM_IMG}')"></div></article></div>
     <section class="dead-tribute" aria-labelledby="deadTributeTitle">
       <h2 class="dead-tribute-title" id="deadTributeTitle">Tributo a los caídos</h2>
       <p class="dead-tribute-subtitle">Su historia permanece en el gremio.</p>
       <div class="dead-tribute-grid">
-        <article class="dead-tribute-card">
+        <article class="dead-tribute-card" style="--tribute-color:#B32635;">
           <div class="tribute-image" style="background-image:url('${imageSource(birshaTributeImage)}')"></div>
           <div>
             <h3>Birsha</h3>
@@ -2830,6 +2832,19 @@ function renderGuildOverview(container){
             </dl>
           </div>
           <div class="tribute-date"><a href="https://www.youtube.com/watch?v=4RmLad99Zgk" target="_blank" rel="noopener noreferrer">18/09/26</a></div>
+        </article>
+        <article class="dead-tribute-card" style="--tribute-color:#176B3A;">
+          <div class="tribute-image" style="background-image:url('${imageSource(gremioB.find(item=>item.name === 'Pistol').img)}')"></div>
+          <div>
+            <h3>Pistol</h3>
+            <div class="tribute-info-title">Información</div>
+            <dl>
+              <dd>Pistolero de Precisión</dd>
+              <dd>Hombre Lagarto</dd>
+              <dt>Estado</dt><dd>Ha desaparecido</dd>
+            </dl>
+          </div>
+          <div class="tribute-date">22/09/26</div>
         </article>
       </div>
     </section>`;
