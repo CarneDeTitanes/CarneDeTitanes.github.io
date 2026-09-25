@@ -865,10 +865,10 @@ footer a:hover{color:var(--gold-bright);}
     <div class="progress-panel">
       <div class="progress-top">
         <span class="lvl">Nivel 4</span>
-        <span class="pg-count">115 / 150 PG hasta Nivel 5</span>
+        <span class="pg-count">140 / 150 PG hasta Nivel 5</span>
       </div>
-      <div class="bar-track"><div class="bar-fill" style="width:22.22%"></div></div>
-      <p class="progress-note">115 PG acumulados; faltan 35 PG para alcanzar el Nivel 5.</p>
+      <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+      <p class="progress-note">140 PG acumulados; faltan 10 PG para alcanzar el Nivel 5.</p>
     </div>
   </section>
 
@@ -1435,7 +1435,8 @@ footer a:hover{color:var(--gold-bright);}
     </div>
     <p class="map-showcase-caption" style="max-width:640px; margin:0 auto 2.5rem; text-align:center;">Aquí se relata la historia del gremio de aventureros del continente El Suelo.</p>
     <div class="timeline">
-      <div class="timeline-node"><h4>Torneo de Piedra Hueca</h4><p>Itzel se alza como campeona del torneo y deja su nombre grabado en la historia del gremio.</p></div>
+      <div class="timeline-node"><h4>Rescate en la nieve</h4><p>Birsha muere y es reemplazada por Itzel. Los aventureros descubren cada vez mas sobre el coloso de la Nieve</p></div>
+      <div class="timeline-node"><h4>Torneo de Piedra Hueca</h4><p>Birsha se alza como campeona del torneo y deja su nombre grabado en la historia del gremio.</p></div>
       <div class="timeline-node"><h4>Axeholm</h4><p>Expulsar a los Guls del antiguo Bastión del Clan Enano.</p></div>
       <div class="timeline-node"><h4>La tumba de Delian</h4><p>Rescatar a la hija del herrero del pueblo de un ritual goblin.</p></div>
       <div class="timeline-node"><h4>Tutorial</h4><p>Sesión introductoria de la campaña, pequeño tutorial.</p></div>
@@ -1443,7 +1444,7 @@ footer a:hover{color:var(--gold-bright);}
   </section>
 
   <footer>
-    <div>Carne de Titanes — una campaña de Jackks</div>
+    <div>Carne de Titanes</div>
   </footer>
 
 </div>
@@ -1570,16 +1571,16 @@ renderLevelChips();
 
 const missions = {
   facil: [
-    {title:'Sombras del Fuerte del Último Vigía', meta:'Nivel 4 · 4-5 personajes · 3-4 horas', desc:'Un grupo drow queda dentro de una fortaleza abandonada tras un ataque que salió mal. El gremio debe entrar y detenerlos antes de que escapen de vuelta al inframundo con información peligrosa sobre la superficie.', detail:'La aventura transcurre en las ruinas de un fuerte fronterizo tomado por un comando drow que originalmente iba a usarlo como cabeza de puente para una invasión, hasta que algo dentro del fuerte los sorprendió a ellos primero. El gremio llega cuando los drow, heridos y a la defensiva, intentan asegurar una salida hacia el inframundo antes de que la información que llevan llegue a sus superiores. Combina exploración de un fuerte semien ruinas, un combate central bien armado y un puñado de PNJs secundarios con personalidad propia. Pensada para 4-5 personajes de nivel 4, dura entre 3 y 4 horas.'}
+    {title:'Sombras del Fuerte del Último Vigía', meta:'Nivel 3 · 4-5 personajes · 3-4 horas', desc:'Un grupo drow queda dentro de una fortaleza abandonada tras un ataque que salió mal. El gremio debe entrar y detenerlos antes de que escapen de vuelta al inframundo con información peligrosa sobre la superficie.', detail:'La aventura transcurre en las ruinas de un fuerte fronterizo tomado por un comando drow que originalmente iba a usarlo como cabeza de puente para una invasión, hasta que algo dentro del fuerte los sorprendió a ellos primero. El gremio llega cuando los drow, heridos y a la defensiva, intentan asegurar una salida hacia el inframundo antes de que la información que llevan llegue a sus superiores. Combina exploración de un fuerte semien ruinas, un combate central bien armado y un puñado de PNJs secundarios con personalidad propia. Pensada para 4-5 personajes de nivel 4, dura entre 3 y 4 horas.'}
   ],
   medio: [
-    {title:'Bajo la Rosa Negra', meta:'Nivel 3 · 5 jugadores', desc:'Una posada tiene un fantasma que ronda sus pasillos y un secreto sectario enterrado bajo el piso. El gremio debe bajar a resolver ambas cosas y cerrar una tragedia de décadas atrás.', detail:'El gremio llega a una posada con fama de estar embrujada, contratado para investigar apariciones que llevan años inquietando al pueblo. La familia que regenta el lugar tiene sus propias tensiones y secretos, y a medida que el gremio indaga queda claro que lo que ronda la posada tiene raíz en algo que pasó hace mucho tiempo bajo el edificio mismo. Combina investigación social con los PNJs de la posada, exploración de espacios ocultos y un enfrentamiento final con lo que sea que hayan estado despertando sin darse cuenta.'}
+    {title:'Bajo la Rosa Negra', meta:'Nivel 4 · 5 jugadores', desc:'Una posada tiene un fantasma que ronda sus pasillos y un secreto sectario enterrado bajo el piso. El gremio debe bajar a resolver ambas cosas y cerrar una tragedia de décadas atrás.', detail:'El gremio llega a una posada con fama de estar embrujada, contratado para investigar apariciones que llevan años inquietando al pueblo. La familia que regenta el lugar tiene sus propias tensiones y secretos, y a medida que el gremio indaga queda claro que lo que ronda la posada tiene raíz en algo que pasó hace mucho tiempo bajo el edificio mismo. Combina investigación social con los PNJs de la posada, exploración de espacios ocultos y un enfrentamiento final con lo que sea que hayan estado despertando sin darse cuenta.'}
   ],
   dificil: [
-    {title:'La Casa de la Muerte', meta:'Nivel 3 · 5 jugadores', desc:'Un caserón abandonado en las afueras del pueblo tiene fama de estar embrujado y de haberse tragado a varios chicos que entraron a explorarlo. El gremio entra a buscar respuestas y a lo que quede de ellos.', detail:'El gremio llega a un pueblo donde una mansión lleva años vacía y rodeada de rumores oscuros: ruidos, niños que desaparecieron y familiares que nunca volvieron a hablar del tema. Al entrar, la casa se revela mucho más grande de lo que parece desde afuera, con varios niveles que esconden capas de una historia familiar que se fue pudriendo con el tiempo. Combina exploración ambiental cargada de pistas narrativas, encuentros con lo sobrenatural que van escalando en intensidad y un descenso final a algo mucho peor debajo de los cimientos. Es intensa y puede resultar letal si no se juega con cuidado. Tiene fama de picar más duro de lo que su nivel sugiere.'}
+    {title:'Los Secretos del Faro de Skyhorn', meta:'Nivel 5 · 4 jugadores', desc:'Ataques de supuestos monstruos marinos han bloqueado el puerto y amenazan el Faro de Skyhorn. Los aventureros deben viajar hasta la isla para liberar la torre asediada por criaturas marinas.  Bajo el faro, violentas personas-anguila obligan a marineros cautivos a invocar elementales. El grupo debe adentrarse en las cavernas, salvar a los rehenes y recuperar el artefacto secreto.', detail:'Los muelles del puerto, antaño abarrotados de actividad mercantil, guardan un silencio inquietante. El terror a los monstruos marinos ha paralizado a las tripulaciones tras el ataque al mercante León de Jade, arrastrado mar adentro por una colosal ola anómala. Solo la capitana Sheila Coppertree se atreve a desafiar las aguas en su velero, el Annabel Lee, para llevaros a la solitaria isla rocosa sobre la que se alza el Faro de Skyhorn, cuyo haz giratorio de luz aún lucha por mantenerse encendido contra la penumbra. El santuario ha caído en manos de invasores despiadados: una colonia de violentas personas-anguila que ha ocupado el laberinto de cavernas inundadas bajo los cimientos de piedra. Utilizando a los tripulantes apresados bajo tortura para forzar invocaciones marinas y rodeados por tiburones hambrientos que patrullan las aguas oscuras, los incursores se preparan para reclamar el control de la costa. Deberéis descender por las escaleras corroídas hacia las profundidades salobres, detener los rituales en curso y salvar a los cautivos antes de que las mareas y el relámpago consuman la última luz de Skyhorn.'}
   ],
   especial: [
-    {title:'Rescate en la nieve', meta:'Misión especial', desc:'Una caravana de mercaderes desapareció en las rutas de montaña hace días. El gremio se divide en dos equipos para rastrearla antes de que el invierno se cierre del todo.', detail:'La premisa es simple en la superficie: una caravana mercante no llegó a destino y nadie sabe si fue el clima, bandidos, o algo peor. A medida que ambos grupos avanzan por rutas distintas de la misma cordillera, empiezan a toparse con señales de que la región está más tensa de lo normal, tensión que tiene que ver con la vieja fricción entre Creyentes y Racionalistas, que en esta zona no es solo una diferencia de opinión. Cada grupo va a acumular piezas de una imagen más grande que solo se completa cuando se vuelven a juntar. Hacia el final, hay un momento de gran escala pensado para dejar una marca: algo que se ve a la distancia y que deja claro que esta cordillera no es tan "segura" como el mapa sugiere.'}
+    {title:'En las Fauces del Nido', meta:'Requisito: Chnak-kla', desc:'Chank-kla guiará a vuestro grupo a las Cuevas de Quitina, territorio de los hombres-insecto, para encontrarse con un contacto secreto. La misión: recoger un paquete sellado sin abrirlo y escapar de inmediato antes de que el enjambre los descubra.', detail:'Las órdenes del Gremio no admiten dudas ni rodeos: el encargo es prioritario, la discreción absoluta y las preguntas están de más. Al frente de la marcha camina Chank-kla, guiándoos hacia las fauces de las Cuevas de Quitina, donde la roca húmeda se transforma en un laberinto sofocante de resina endurecida, arcos estriados y túneles que crujen bajo el paso de una civilización subterránea de hombres-insecto. La transacción debe ser limpia y fugaz. La consigna del Gremio resuena con claridad en vuestra mente: recoger el paquete sellado, resistir la tentación de comprobar qué hay dentro y salir de las cuevas a la mayor velocidad posible antes de que los guardianes del nido o rivales al acecho se interpongan en el camino de vuelta.'}
   ]
 };
 function renderMissions(){
@@ -2242,12 +2243,17 @@ function renderGremioBFlow(container){
     return;
   }
 
-  let gbState = {};
-  window.ctFirebase.loadChar('gremiob').then(data=>{
-    gbState = data.equipo || {};
-    inputs.forEach(inp=>{
-      const memberData = gbState[inp.dataset.member];
-      if(memberData && memberData[inp.dataset.slot]) inp.value = memberData[inp.dataset.slot];
+  let legacyState = {};
+  Promise.all([
+    window.ctFirebase.loadChar('gremiob'),
+    ...members.map(member=>window.ctFirebase.loadChar(member.key))
+  ]).then(([legacyData, ...memberData])=>{
+    legacyState = legacyData.equipo || {};
+    members.forEach((member, index)=>{
+      const equipo = memberData[index].equipo || legacyState[member.key] || {};
+      inputs.forEach(inp=>{
+        if(inp.dataset.member === member.key && equipo[inp.dataset.slot]) inp.value = equipo[inp.dataset.slot];
+      });
     });
   }).catch(()=>{
     members.forEach(m=>{
@@ -2263,9 +2269,11 @@ function renderGremioBFlow(container){
       if(status) status.textContent = 'Escribiendo...';
       clearTimeout(saveTimer);
       saveTimer = setTimeout(()=>{
-        if(!gbState[inp.dataset.member]) gbState[inp.dataset.member] = {};
-        gbState[inp.dataset.member][inp.dataset.slot] = inp.value;
-        window.ctFirebase.saveEquipo('gremiob', gbState)
+        const equipo = {};
+        inputs.forEach(memberInput=>{
+          if(memberInput.dataset.member === inp.dataset.member) equipo[memberInput.dataset.slot] = memberInput.value;
+        });
+        window.ctFirebase.saveEquipo(inp.dataset.member, equipo)
           .then(()=>{ if(status) status.textContent = 'Guardado ✓'; showToast('Equipo guardado'); })
           .catch(()=>{ if(status) status.textContent = 'Error al guardar — reintenta.'; });
       }, 900);
@@ -3144,7 +3152,10 @@ function renderCharPanel(container, p){
     saveTimer = setTimeout(()=>{
       window.ctFirebase.saveMochila(p.id, textarea.value)
         .then(()=>{ status.textContent = 'Guardado ✓'; showToast('Mochila guardada'); })
-        .catch(()=>{ status.textContent = 'Error al guardar — reintenta.'; });
+        .catch(error=>{
+          console.error('No se pudo guardar la mochila', {charId:p.id, error});
+          status.textContent = `Error al guardar (${error.code || 'desconocido'})`;
+        });
     }, 900);
   });
 
@@ -3161,7 +3172,10 @@ function renderCharPanel(container, p){
       equipoTimer = setTimeout(()=>{
         window.ctFirebase.saveEquipo(p.id, collectEquipo())
           .then(()=>{ equipoStatus.textContent = 'Guardado ✓'; showToast('Equipo guardado'); })
-          .catch(()=>{ equipoStatus.textContent = 'Error al guardar — reintenta.'; });
+          .catch(error=>{
+            console.error('No se pudo guardar el equipo', {charId:p.id, error});
+            equipoStatus.textContent = `Error al guardar (${error.code || 'desconocido'})`;
+          });
       }, 900);
     });
   });

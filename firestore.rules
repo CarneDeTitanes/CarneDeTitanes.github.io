@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /mochilas/{charId} {
+      allow read: if true;
+      allow write: if charId in [
+        'itzel', 'birsha', 'temis', 'cinto', 'chankkla',
+        'vin', 'therian', 'gremiob',
+        'johnc', 'razon', 'h', 'mus', 'pistol', 'adalman',
+        'gremiob_johnc', 'gremiob_razon', 'gremiob_h',
+        'gremiob_mus', 'gremiob_pistol', 'gremiob_adalman'
+      ]
+      && (!('text' in request.resource.data)
+          || (request.resource.data.text is string
+              && request.resource.data.text.size() < 5000))
+      && (!('equipo' in request.resource.data)
+          || request.resource.data.equipo is map);
+    }
+
+    match /dm/notas {
+      allow read: if true;
+      allow write: if request.resource.data.text is string
+                   && request.resource.data.text.size() < 10000;
+    }
+
+    match /forja/estaciones {
+      allow read: if true;
+      allow write: if request.resource.data.slots is map;
+    }
+  }
+}
