@@ -2769,6 +2769,10 @@ function renderMiPersonaje(){
     renderGremioBFlow(container);
     return;
   }
+  if(saved === 'unknown-character'){
+    renderCharPanel(container, {id:'unknown-character', name:'Nuevo personaje', race:'Por definir', klass:'Equipo y registro', color:'#D6A928', img:''});
+    return;
+  }
   if(saved === 'gremio-overview' || !saved){
     renderGuildOverview(container);
     return;
@@ -2819,9 +2823,9 @@ function guildMemberCard(member, isOther){
 function renderGuildOverview(container){
   container.innerHTML = `<h2 class="guild-title">Gremios</h2>
     <div class="guild-group-title">Vinculo de las ocho sombras</div>
-    <div class="guild-roster">${window.ctParty.map(member=>guildMemberCard(member, false)).join('')}</div>
+    <div class="guild-roster">${window.ctParty.filter(member=>member.id !== 'therian').map(member=>guildMemberCard(member, false)).join('')}<article class="guild-member guild-card empty-guild-card" data-placeholder-card aria-label="Nuevo personaje"><div class="guild-card-image">?</div><div class="guild-card-body"><h3>Nuevo personaje</h3><div class="guild-card-subtitle"><span>Hueco disponible</span><span>Equipo y registro</span></div></div></article></div>
     <div class="guild-group-title">Los Otros</div>
-    <div class="guild-roster">${gremioB.filter(member=>member.name !== 'Pistol').map(member=>guildMemberCard(member, true)).join('')}<article class="guild-member guild-card empty-guild-card" aria-label="Miembro desconocido"><div class="guild-card-image">?</div></article></div>
+    <div class="guild-roster">${guildMemberCard(window.ctParty.find(member=>member.id === 'therian'), false)}${gremioB.filter(member=>member.name !== 'Pistol').map(member=>guildMemberCard(member, true)).join('')}</div>
     <div class="guild-group-title">Dungeon Master</div>
     <div class="guild-roster"><article class="guild-member guild-card dm-card" data-dm-card style="--member-color:${guildBorderColors.dm};"><div class="guild-card-image" style="background-image:url('data:image/jpeg;base64,${DM_IMG}')"></div></article></div>
     <section class="dead-tribute" aria-labelledby="deadTributeTitle">
@@ -2861,6 +2865,10 @@ function renderGuildOverview(container){
     if(button.dataset.other === 'true') renderBMemberGate(container, member);
     else { localStorage.setItem(MI_KEY, member.id); renderMiPersonaje(); }
   }));
+  document.querySelector('[data-placeholder-card]').addEventListener('click', ()=>{
+    localStorage.setItem(MI_KEY, 'unknown-character');
+    renderMiPersonaje();
+  });
   document.querySelector('[data-dm-card]').addEventListener('click', ()=>{ localStorage.setItem(MI_KEY, 'dm'); renderDMFlow(container); });
 }
 function renderBMemberGate(container, member){

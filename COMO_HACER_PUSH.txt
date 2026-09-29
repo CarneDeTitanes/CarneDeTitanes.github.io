@@ -1,0 +1,74 @@
+COMO PUBLICAR CAMBIOS EN GITHUB
+===============================
+
+Este proyecto usa:
+  Repositorio: https://github.com/CarneDeTitanes/CarneDeTitanes.github.io
+  Rama: main
+  Remoto: origin
+
+1. Abre PowerShell en esta carpeta
+
+   c:\Users\glach\Desktop\CarneDeTitanes.github.io
+
+2. Comprueba que estas en la rama correcta
+
+   git status
+   git branch --show-current
+
+   Debe aparecer: main
+
+3. Revisa que cambios vas a publicar
+
+   git status
+
+IMPORTANTE: ahora mismo hay varios archivos marcados como borrados. No uses
+"git add -A" si no quieres publicar esos borrados.
+
+OPCION RECOMENDADA: publicar solo el arreglo de guardado
+---------------------------------------------------------
+
+   git add index.html firestore.rules
+   git commit -m "Corrige guardado de miembros de Gremio B"
+   git push origin main
+
+OPCION PARA PUBLICAR TODO LO PENDIENTE
+--------------------------------------
+
+Usa esto solo si quieres incluir tambien los archivos borrados y cualquier
+otro cambio que aparezca en "git status":
+
+   git add -A
+   git commit -m "Actualiza el portal"
+   git push origin main
+
+4. Comprueba que el push termino bien
+
+   git status
+
+Debe decir algo parecido a:
+   Your branch is up to date with 'origin/main'.
+   nothing to commit, working tree clean
+
+5. Publicar las reglas de Firestore
+-----------------------------------
+
+El push de GitHub actualiza los archivos del repositorio, pero NO publica
+automaticamente firestore.rules en Firebase.
+
+Entra en Firebase Console:
+  https://console.firebase.google.com/
+
+Luego:
+  1. Abre el proyecto carne-de-titanes.
+  2. Ve a Firestore Database.
+  3. Abre la pestaña Rules.
+  4. Pega el contenido de firestore.rules.
+  5. Pulsa Publish.
+
+Si Git pide tu identidad por primera vez:
+
+   git config --global user.name "Tu nombre"
+   git config --global user.email "tu-correo@example.com"
+
+Si GitHub pide iniciar sesion, completa la ventana o usa GitHub Desktop.
+No compartas nunca contrasenas ni tokens en el chat.
