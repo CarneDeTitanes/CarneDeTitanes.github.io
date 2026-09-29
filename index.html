@@ -1105,7 +1105,7 @@ footer a:hover{color:var(--gold-bright);}
       <h2>Armaduras mágicas</h2>
     </div>
     <div class="armor-grid" id="armorGrid"></div>
-    <div class="armor-side-note">Imagen lateral pendiente — la coloco en cuanto me la pases.</div>
+    <div class="armor-side-note">Imagen lateral pendiente.</div>
   </section>
 
   <section class="forge-section">
@@ -2677,46 +2677,45 @@ const rarityLabel = {comun:'Común', azul:'Infrecuente', morado:'Raro', amarillo
 const weapons = [
   {name:'Arco del Tirador Constante', type:'Arco Corto', dice:'1d6+DES', rarity:'comun', price:350, desc:'Otorga +1 a tiradas de ataque a distancia.'},
   {name:'Ballesta de Puntería Firme', type:'Ballesta Ligera', dice:'1d8+DES', rarity:'comun', price:350, desc:'Otorga +1 a daño en ataques a distancia.'},
-  {name:'Honda de Munición Infinita', type:'Honda', dice:'1d4+DES', rarity:'comun', price:260, desc:'Genera munición básica al final de cada descanso corto.'},
-  {name:'Daga del Filo Constante', type:'Daga', dice:'1d4+DES', rarity:'comun', price:350, desc:'Otorga +1 a tiradas de ataque.'},
-  {name:'Espada Corta de Golpe Firme', type:'Espada Corta', dice:'1d6+DES', rarity:'comun', price:350, desc:'Otorga +1 a daño.'},
+  {name:'Honda de Munición Infinita', type:'Honda', dice:'1d4+DES', rarity:'comun', price:260, desc:'Las piedras golpean con daño de Trueno.'},
+  {name:'Daga del Filo Constante', type:'Daga', dice:'1d4+DES', rarity:'comun', price:250, desc:'Otorga +1 a tiradas de ataque.'},
+  {name:'Espada Corta de Golpe Firme', type:'Espada Corta', dice:'1d6+DES', rarity:'comun', price:250, desc:'Otorga +1 a daño.'},
   {name:'Cimitarra Balanceada', type:'Cimitarra', dice:'1d6+DES', rarity:'comun', price:300, desc:'Ventaja en la primera tirada de ataque de cada combate.'},
-  {name:'Daga del Contragolpe', type:'Daga', dice:'1d4+DES', rarity:'azul', price:600, desc:'1/DL, como reacción tras esquivar un ataque cuerpo a cuerpo: puedes atacar de inmediato a ese atacante.'},
-  {name:'Espada Corta Sanguinaria', type:'Espada Corta', dice:'1d6+DES', rarity:'azul', price:500, desc:'Al reducir una criatura a 0 PG con esta arma, recuperas PG temporales igual a tu nivel de competencia (1/turno).'},
-  {name:'Arco de Flecha Perseguidora', type:'Arco Corto', dice:'1d6+DES', rarity:'azul', price:550, desc:'1/DL: un disparo ignora cobertura de tres cuartos o menor y tiene ventaja contra un objetivo que ya te haya atacado este combate.'},
-  {name:'Ballesta de la Retirada', type:'Ballesta Ligera', dice:'1d8+DES', rarity:'azul', price:480, desc:'Cada 3 impactos, empuja al objetivo 1,5m en dirección opuesta a ti.'},
+  {name:'Daga del Contragolpe', type:'Daga', dice:'1d4+DES', rarity:'azul', price:600, desc:'1/DC, como reacción tras esquivar un ataque cuerpo a cuerpo: puedes atacar de inmediato a ese atacante.'},
+  {name:'Espada Corta Sanguinaria', type:'Espada Corta', dice:'1d6+DES', rarity:'azul', price:500, desc:'Al reducir una criatura a 0 PG con esta arma, recuperas PG temporales igual a tu modif. por Constitucion (1/turno).'},
+  {name:'Rodela Trabadora', slot:'Escudo', baseAC:'+2', rarity:'azul', price:800, desc:'Cuando una criatura te falla un ataque cuerpo a cuerpo, usa tu reacción: salvación de Fuerza (CD 8 + competencia + mod. Fuerza) o cae derribada. 3 cargas, recuperas 1DC y todas DL.'},
+  {name:'Escudo Baluarte', slot:'Escudo', baseAC:'+2', rarity:'azul', price:550, desc:'Acción adicional: postura defensiva hasta el inicio de tu siguiente turno. Ataques a distancia contra ti con desventaja, pero no puedes usar reacciones.'},
+  {name:'Ballesta de la Retirada', type:'Ballesta Ligera', dice:'1d8+DES', rarity:'azul', price:480, desc:'Tras acertar a un enemigo con un crítico, puedes moverte 3m sin provocar ataques de oportunidad.'},
 ];
 
 const armors = [
-  {name:'Yelmo de Zarza', slot:'Casco', rarity:'comun', price:260, desc:'Ventaja para esconderse en vegetación densa.'},
   {name:'Guardamanos de Hierro Frío', slot:'Guantes', rarity:'comun', price:280, desc:'Ventaja para escapar de agarres.'},
-  {name:'Botas de Marcha Firme', slot:'Botas', rarity:'comun', price:270, desc:'Ventaja en salvaciones para no ser derribado.'},
-  {name:'Cota de Musgo', slot:'Armadura', baseAC:'11 + DES', weight:'Ligera', rarity:'comun', price:310, desc:'+1 a la CA total. Resistencia a daño de veneno mientras estés en terreno natural.'},
-  {name:'Cuero Reforzado del Cazador', slot:'Armadura Ligera', rarity:'comun', price:350, desc:'Otorga +1 a la Clase de Armadura.'},
-  {name:'Chaleco de Cuero Curtido', slot:'Armadura Ligera', rarity:'comun', price:300, desc:'Otorga +1 a salvaciones de Destreza.'},
-  {name:'Cota Ligera del Explorador', slot:'Armadura Ligera', rarity:'comun', price:260, desc:'Otorga +1 a Iniciativa.'},
-  {name:'Placas Remendadas', slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Intermedia', rarity:'comun', price:360, desc:'+1 a la CA total. Dale un golpecito a la coraza para que se ilumine en un radio de 6 m.'},
-  {name:'Coraza Autónoma', slot:'Armadura', baseAC:'16', weight:'Pesada', rarity:'comun', price:400, desc:'+1 a la CA total. Puede ponerse y quitarse sola con una orden mental sencilla.'},
-  {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:750, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
-  {name:'Armadura de Cuero Fantasma', slot:'Armadura Ligera', rarity:'azul', price:700, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
-  {name:'Cuero Tejido de Araña', slot:'Armadura Ligera', rarity:'azul', price:480, desc:'Velocidad de trepar igual a tu velocidad caminando; ventaja en salvaciones contra quedar Apresado.'},
+  {name:'Botas de Marcha Firme', slot:'Botas', rarity:'comun', price:250, desc:'Ventaja en salvaciones para no ser derribado.'},
+  {name:'Cota de Musgo', slot:'Armadura', baseAC:'12 + DES', weight:'Ligera', rarity:'comun', price:350, desc:'Resistencia a daño de veneno.'},
+  {name:'Chaleco de Cuero Curtido', slot:'Armadura', baseAC:'11 + DES', weight:'Ligera', rarity:'comun', price:300, desc:'Otorga +1 a salvaciones de Destreza.'},
+  {name:'Cota Ligera del Explorador', slot:'Armadura', baseAC:'11 + DES (máx. 2)', weight:'Ligera', rarity:'comun', price:250, desc:'Otorga +1 a Iniciativa.'},
+  {name:'Placas Remendadas', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'comun', price:260, desc:'Dale un golpecito a la coraza para que se ilumine en un radio de 6 m.'},
+  {name:'Coraza Autónoma', slot:'Armadura', baseAC:'17', weight:'Pesada', rarity:'comun', price:300, desc:'Puede ponerse y quitarse sola con una orden mental sencilla.'},
+  {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:550, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
+  {name:'Armadura de Cuero Fantasma', slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:600, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
+  {name:'Cuero Tejido de Araña',slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:480, desc:'Velocidad de trepar igual a tu velocidad caminando; ventaja en salvaciones contra quedar Apresado.'},
   {name:'Botas Etélicas', slot:'Botas', rarity:'azul', price:450, desc:'Tus pasos no emiten ningún sonido, sin importar la velocidad a la que te muevas. Tienes ventaja en todas las pruebas de Destreza (Sigilo) que dependan de no hacer ruido.'},
   {name:'Diadema de Sinergia Arcana', slot:'Casco', rarity:'azul', price:600, desc:'Cada vez que aplicas un estado a un enemigo obtienes Sinergia Arcana, el turno siguiente usas el modificador de tu característica de lanzamiento de conjuros al daño de tus ataques con armas.'},
-  {name:'Escamas del Abismo Menor', slot:'Armadura', baseAC:'16', weight:'Pesada', rarity:'azul', price:900, desc:'+2 a la CA total. Resistencia a daño necrótico.'},
+  {name:'Escamas del Abismo Menor', slot:'Armadura', baseAC:'18', weight:'Pesada', rarity:'azul', price:900, desc:'Resistencia a daño necrótico.'},
 ];
 
 const accessories = [
-  {name:'Anillo de Aguas Quietas', type:'Anillo', rarity:'comun', price:300, desc:'Ventaja en salvaciones de Sabiduría contra ser asustado o dominado por miedo.'},
-  {name:'Amuleto del Rastreador', type:'Amuleto', rarity:'comun', price:310, desc:'Ventaja en pruebas de Sabiduría (Percepción) para encontrar pistas, huellas o pasadizos ocultos.'},
+  {name:'Anillo de Aguas Quietas', type:'Anillo', rarity:'comun', price:200, desc:'Ventaja en salvaciones de Sabiduría contra ser asustado o dominado por miedo.'},
+  {name:'Amuleto del Rastreador', type:'Amuleto', rarity:'comun', price:200, desc:'Ventaja en pruebas de Sabiduría (Percepción) para encontrar pistas, huellas o pasadizos ocultos.'},
   {name:'Capa de Resistencia al Frío', type:'Capa', rarity:'comun', price:300, desc:'Resistencia a daño de frío mientras se lleva puesta.'},
-  {name:'Capa del Paso Ligero', type:'Capa', rarity:'comun', price:280, desc:'Otorga +1 a tiradas de Destreza (Sigilo).'},
+  {name:'Capa del Paso Ligero', type:'Capa', rarity:'comun', price:280, desc:'Otorga +1 a tiradas de Destreza.'},
   {name:'Capa de Protección Menor', type:'Capa', rarity:'comun', price:380, desc:'Otorga +1 a la Clase de Armadura.'},
-  {name:'Anillo de Alondra', type:'Anillo', rarity:'comun', price:260, desc:'Permite al portador lanzar el truco Guía 1 vez por descanso corto.'},
+  {name:'Anillo de Alondra', type:'Anillo', rarity:'comun', price:260, desc:'Permite al portador lanzar el truco Guía.'},
   {name:'Anillo del Pulso Constante', type:'Anillo', rarity:'comun', price:280, desc:'Ventaja en salvaciones de Constitución contra veneno.'},
   {name:'Amuleto de Pasos Neblinosos', type:'Amuleto', rarity:'azul', price:550, desc:'Permite tirar Paso Brumoso una vez por descanso largo.'},
-  {name:'Amuleto del Peregrino', type:'Amuleto', rarity:'azul', price:700, desc:'Ventaja en tiradas de Supervivencia para encontrar comida y agua.'},
-  {name:'Capa de las Sombras Cambiantes', type:'Capa', rarity:'azul', price:600, desc:'1/DL, como reacción: si un ataque cuerpo a cuerpo recibido falla, el atacante queda Cegado hasta el final de su próximo turno.'},
-  {name:'Capa del Viajero Insomne', type:'Capa', rarity:'azul', price:520, desc:'No necesita descansar para beneficiarse de un descanso corto; ventaja en salvaciones contra ser sorprendido.'},
+  {name:'Amuleto del Peregrino', type:'Amuleto', rarity:'azul', price:500, desc:'Ventaja en tiradas de Supervivencia para encontrar comida y agua.'},
+  {name:'Capa de las Sombras Cambiantes', type:'Capa', rarity:'azul', price:500, desc:'1/DL, como reacción: si un ataque cuerpo a cuerpo recibido falla, el atacante queda Cegado hasta el final de su próximo turno.'},
+  {name:'Capa del Viajero Insomne', type:'Capa', rarity:'azul', price:620, desc:'1/DL, no necesita descansar para beneficiarse de un descanso corto.'},
   {name:'Anillo del Eco Cercano', type:'Anillo', rarity:'azul', price:420, desc:'Una vez por descanso corto, susurra un mensaje que solo oirá quien elijas, hasta 18 metros de distancia.'}
 ];
 
