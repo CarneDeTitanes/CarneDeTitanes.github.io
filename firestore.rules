@@ -28,5 +28,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if request.resource.data.slots is map;
     }
+
+    match /weaponSales/requests {
+      allow read: if true;
+      allow write: if request.resource.data.requests is list
+                   && request.resource.data.requests.size() <= 100;
+    }
   }
 }
