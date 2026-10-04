@@ -5,8 +5,8 @@ service cloud.firestore {
     match /mochilas/{charId} {
       allow read: if true;
       allow write: if charId in [
-        'itzel', 'birsha', 'temis', 'cinto', 'chankkla',
-        'vin', 'therian', 'gremiob',
+        'itzel', 'birsha', 'nyx', 'cinto', 'chankkla',
+        'vin', 'therian', 'geppeto', 'gremiob',
         'johnc', 'razon', 'h', 'mus', 'pistol', 'adalman',
         'gremiob_johnc', 'gremiob_razon', 'gremiob_h',
         'gremiob_mus', 'gremiob_pistol', 'gremiob_adalman'

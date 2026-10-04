@@ -49,7 +49,30 @@ Debe decir algo parecido a:
    Your branch is up to date with 'origin/main'.
    nothing to commit, working tree clean
 
-5. Publicar las reglas de Firestore
+5. Traer a tu dispositivo cambios editados en GitHub
+-----------------------------------------------------
+
+Si editas archivos directamente en GitHub y quieres tener esos cambios en
+tu carpeta del dispositivo, abre PowerShell en:
+
+   c:\Users\glach\Desktop\CarneDeTitanes.github.io
+
+Si no tienes cambios locales pendientes, ejecuta:
+
+   git pull origin main
+
+Si la carpeta ya no existe o quieres clonar el repositorio en otra ubicacion,
+ve a la carpeta donde quieras guardarlo y ejecuta:
+
+   git clone https://github.com/CarneDeTitanes/CarneDeTitanes.github.io.git
+
+Git creara una carpeta llamada CarneDeTitanes.github.io con los archivos mas
+recientes del repositorio.
+
+IMPORTANTE: antes de usar "git pull", guarda o publica tus cambios locales.
+Si Git indica que hay conflictos, no sobrescribas archivos sin revisarlos.
+
+6. Publicar las reglas de Firestore
 -----------------------------------
 
 El push de GitHub actualiza los archivos del repositorio, pero NO publica

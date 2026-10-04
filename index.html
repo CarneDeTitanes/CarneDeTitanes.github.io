@@ -817,11 +817,11 @@ footer a:hover{color:var(--gold-bright);}
 
   <div class="party-avatars" id="headerAvatars">
     <div class="avatar-chip" style="background:#000000; color:#E8C563;" title="Itzel" data-id="itzel">I</div>
-    <div class="avatar-chip" style="background:#7A4F32" title="Nyx" data-id="Nyx">N</div>
+    <div class="avatar-chip" style="background:#7A4F32" title="Nyx" data-id="nyx">N</div>
     <div class="avatar-chip" style="background:#8C6A2E" title="Cinto" data-id="cinto">C</div>
     <div class="avatar-chip" style="background:#8C3A2E" title="Chank-kla" data-id="chankkla">Ch</div>
     <div class="avatar-chip" style="background:#2E5B8C" title="Vin" data-id="vin">V</div>
-    <div class="avatar-chip" style="background:#5B3A7A" title="Therian" data-id="therian">Th</div>
+    <div class="avatar-chip" style="background:#7C4DAD" title="Geppeto" data-id="geppeto">G</div>
     <div class="avatar-chip" style="background:#F5F0E6;" title="DM" data-id="dm">DM</div>
     <button class="present-btn glow-hover" id="presentBtn" title="Modo presentación">⛶</button>
     <button class="present-btn glow-hover" id="installBtn" title="Instalar como app" style="display:none;">📲</button>
@@ -1477,6 +1477,7 @@ footer a:hover{color:var(--gold-bright);}
     </div>
     <p class="map-showcase-caption" style="max-width:640px; margin:0 auto 2.5rem; text-align:center;">Aquí se relata la historia del gremio de aventureros del continente El Suelo.</p>
     <div class="timeline">
+      <div class="timeline-node"><h4>La colmena</h4><p>Los aventureros descubren la colmena y se enfrentan a los hormigas guardianas.</p></div>
       <div class="timeline-node"><h4>El Faro</h4><p>Temis muere y es reemplazada por Nyx. Los aventureros descubren una nueva aliada pirata y empiezan a conocer el mundo</p></div>
       <div class="timeline-node"><h4>Rescate en la nieve</h4><p>Birsha muere y es reemplazada por Itzel. Los aventureros descubren cada vez mas sobre el coloso de la Nieve</p></div>
       <div class="timeline-node"><h4>Torneo de Piedra Hueca</h4><p>Birsha se alza como campeona del torneo y deja su nombre grabado en la historia del gremio.</p></div>
@@ -2137,6 +2138,7 @@ function cancelForjaSlot(catKey){
 }
 
 const changelog = [
+  {date:'2 oct', text:'Nuevo sistema de Venta: los jugadores pueden enviar solicitudes de armas con vendedor, objeto, característica y precio, y el DM puede aprobarlas o rechazarlas desde su zona.'},
   {date:'21 sep', text:'Actualización del gremio: misión especial completada (+30 PG), penalización por muerte (-20 PG) y progreso de 105 a 115 PG.'},
   {date:'21 sep', text:'Birsha ha muerto tras resbalarse y caer por un puente.'},
   {date:'21 sep', text:'Itzel se une al gremio de las ocho sombras.'},
@@ -2668,9 +2670,15 @@ const birshaTributeImage = party[0].img;
 party[0].img = 'Fotos/Itzel.jpg';
 const nyxCharacter = party.find(member => member.id === 'Nyx');
 if(nyxCharacter){
+  nyxCharacter.id = 'nyx';
   nyxCharacter.img = 'Nyx_avatar.jpeg';
   nyxCharacter.color = '#7A4F32';
 }
+const geppetoCharacter = {
+  id:'geppeto', name:'Geppeto', race:'Geppetin Raggedy',
+  klass:'Brujo — Patrón: el Filo Maléfico', color:'#8C6A2E', img:'Fotos/Geppeto.png'
+};
+party.push(geppetoCharacter);
 function imageSource(image){ return image && image.startsWith('/9j/') ? `data:image/jpeg;base64,${image}` : image; }
 
 const gremioB = [
@@ -2849,7 +2857,7 @@ const armors = [
   {name:'Placas Remendadas', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'comun', price:260, desc:'Dale un golpecito a la coraza para que se ilumine en un radio de 6 m.'},
   {name:'Coraza Autónoma', slot:'Armadura', baseAC:'17', weight:'Pesada', rarity:'comun', price:300, desc:'Puede ponerse y quitarse sola con una orden mental sencilla.'},
   {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:550, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
-  {name:'Armadura de Cuero Fantasma', slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:600, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
+  {name:'Armadura Fantasma', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'azul', price:600, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
   {name:'Cuero Tejido de Araña',slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:480, desc:'Velocidad de trepar igual a tu velocidad caminando; ventaja en salvaciones contra quedar Apresado.'},
   {name:'Botas Etélicas', slot:'Botas', rarity:'azul', price:450, desc:'Tus pasos no emiten ningún sonido, sin importar la velocidad a la que te muevas. Tienes ventaja en todas las pruebas de Destreza (Sigilo) que dependan de no hacer ruido.'},
   {name:'Diadema de Sinergia Arcana', slot:'Casco', rarity:'azul', price:600, desc:'Cada vez que aplicas un estado a un enemigo obtienes Sinergia Arcana, el turno siguiente usas el modificador de tu característica de lanzamiento de conjuros al daño de tus ataques con armas.'},
@@ -2935,7 +2943,9 @@ function renderMiPersonaje(){
     renderGuildOverview(container);
     return;
   }
-  const chosen = window.ctParty.find(p => p.id === saved);
+  const normalizedSaved = saved === 'Nyx' ? 'nyx' : saved;
+  if(normalizedSaved !== saved) localStorage.setItem(MI_KEY, normalizedSaved);
+  const chosen = window.ctParty.find(p => p.id === normalizedSaved);
   if(!chosen){
     renderCharPicker(container);
   } else if(sessionStorage.getItem('ctt_room_auth_'+chosen.id) !== '1'){
@@ -2948,11 +2958,11 @@ function renderMiPersonaje(){
 function guildResourceKey(id, resource){ return `ctt_guild_${id}_${resource}`; }
 const guildDisplay = {
   itzel:['Itzel','Angel Caido, Satanita · Martir Carga de la Discordia'],
-  Nyx:['Nyx','Humana, Cazadora de la Orden Lunar'],
+  nyx:['Nyx','Humana, Cazadora de la Orden Lunar'],
   cinto:['ACC-05 Cinto','Forjado, Monje Borracho'],
   chankkla:['Chank-kla','Thri-kreen, Guerrero Campeón'],
   vin:['Vin','Elfa Eladrin, Mago del Canto de la Hoja'],
-  therian:['Therian','Dracónido Amatista, Guardián Vigilante Gris']
+  geppeto:['Geppeto','Geppetin Raggedy, Brujo Patrón: el Filo Maléfico']
 };
 const gremioBDisplay = {
   'John C.':['John C.','Humano, Investigador Exterminador'],
@@ -2963,7 +2973,7 @@ const gremioBDisplay = {
   Adalman:['Adalman','Necropolitano, Nigromante Maestro Pálido']
 };
 const guildBorderColors = {
-  itzel:'#B32635', Nyx:'#7A4F32', cinto:'#B98A63', chankkla:'#E08B2B', vin:'#245A8A', therian:'#8E5BB7',
+  itzel:'#B32635', nyx:'#7A4F32', cinto:'#B98A63', chankkla:'#E08B2B', vin:'#245A8A', therian:'#8E5BB7', geppeto:'#8C6A2E',
   'gremiob_johnc':'#5A3825', 'gremiob_razon':'#C9826B', 'gremiob_h':'#80868B',
   'gremiob_mus':'#55B7A5', 'gremiob_pistol':'#176B3A', 'gremiob_adalman':'#27B83A', dm:'#B026FF'
 };
@@ -2981,7 +2991,7 @@ function guildMemberCard(member, isOther){
 function renderGuildOverview(container){
   container.innerHTML = `<h2 class="guild-title">Gremios</h2>
     <div class="guild-group-title">Vinculo de las ocho sombras</div>
-    <div class="guild-roster">${window.ctParty.filter(member=>member.id !== 'therian').map(member=>guildMemberCard(member, false)).join('')}<article class="guild-member guild-card empty-guild-card" data-placeholder-card aria-label="Nuevo personaje"><div class="guild-card-image">?</div><div class="guild-card-body"><h3>Nuevo personaje</h3><div class="guild-card-subtitle"><span>Hueco disponible</span><span>Equipo y registro</span></div></div></article></div>
+    <div class="guild-roster">${window.ctParty.filter(member=>member.id !== 'therian' && member.id !== 'geppeto').map(member=>guildMemberCard(member, false)).join('')}${guildMemberCard(geppetoCharacter, false)}</div>
     <div class="guild-group-title">Los Otros</div>
     <div class="guild-roster">${guildMemberCard(window.ctParty.find(member=>member.id === 'therian'), false)}${gremioB.filter(member=>member.name !== 'Pistol').map(member=>guildMemberCard(member, true)).join('')}</div>
     <div class="guild-group-title">Dungeon Master</div>
@@ -3034,10 +3044,6 @@ function renderGuildOverview(container){
     if(button.dataset.other === 'true') renderBMemberGate(container, member);
     else { localStorage.setItem(MI_KEY, member.id); renderMiPersonaje(); }
   }));
-  document.querySelector('[data-placeholder-card]').addEventListener('click', ()=>{
-    localStorage.setItem(MI_KEY, 'unknown-character');
-    renderMiPersonaje();
-  });
   document.querySelector('[data-dm-card]').addEventListener('click', ()=>{ localStorage.setItem(MI_KEY, 'dm'); renderDMFlow(container); });
 }
 function renderBMemberGate(container, member){
@@ -3067,7 +3073,7 @@ function renderCharGate(container, p){
   const input = document.getElementById('charRoomPassword');
   const error = document.getElementById('charRoomError');
   const enter = ()=>{
-    const privatePasswords = {chankkla:'4769', itzel:'179274', therian:'5005', vin:'Dante'};
+    const privatePasswords = {chankkla:'4769', itzel:'179274', therian:'5005', geppeto:'5005', vin:'Dante'};
     const password = privatePasswords[p.id] || p.name.trim().toLowerCase();
     if(input.value.trim() === '2312' || input.value.trim().toLowerCase() === password.toLowerCase()){
       sessionStorage.setItem('ctt_room_auth_'+p.id, '1');
@@ -3114,7 +3120,7 @@ function renderCharPicker(container){
 }
 
 function renderCharPanel(container, p){
-  const roomColors = {itzel:'#161616', Nyx:'#7A4F32', therian:'#7C4DAD', chankkla:'#C86B2A', cinto:'#7A4F32', vin:'#3D72B8'};
+  const roomColors = {itzel:'#161616', nyx:'#7A4F32', therian:'#7C4DAD', geppeto:'#8C6A2E', chankkla:'#C86B2A', cinto:'#7A4F32', vin:'#3D72B8'};
   const roomColor = roomColors[p.id] || p.color;
   const isItzel = p.id === 'itzel';
   container.innerHTML = `
