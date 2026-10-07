@@ -2696,6 +2696,13 @@ const gremioB = [
    desc:'Cruzó la frontera entre la vida y la muerte por voluntad propia, y no piensa volver. Se hace acompañar de esclavos no muertos y trata la carne de los caídos como una herramienta más.'}
 ];
 
+const tempestMember = gremioB.find(member => member.name === 'H');
+if(tempestMember){
+  tempestMember.name = 'Tempest';
+  tempestMember.race = 'Gente Limo';
+  tempestMember.klass = 'Brujo — Magia verde';
+}
+
 function makeCarousel(data, stageId, dotsId, tagLabel){
   let index = 0;
   const stage = document.getElementById(stageId);
@@ -2967,14 +2974,14 @@ const guildDisplay = {
 const gremioBDisplay = {
   'John C.':['John C.','Humano, Investigador Exterminador'],
   Razon:['Razon','Enano, Pugilista Cuadrilátero'],
-  H:['No name','Vasija Metálica, Bárbaro Guardián Espiritual'],
+  Tempest:['Tempest','Gente Limo, Brujo magia verde'],
   Mus:['Mus','Replicante de Lorwyn, Círculo de la Luna'],
   Pistol:['Pistol','Hombre Lagarto, Pistolero de Precisión'],
   Adalman:['Adalman','Necropolitano, Nigromante Maestro Pálido']
 };
 const guildBorderColors = {
   itzel:'#B32635', nyx:'#7A4F32', cinto:'#B98A63', chankkla:'#E08B2B', vin:'#245A8A', therian:'#8E5BB7', geppeto:'#8C6A2E',
-  'gremiob_johnc':'#5A3825', 'gremiob_razon':'#C9826B', 'gremiob_h':'#80868B',
+  'gremiob_johnc':'#5A3825', 'gremiob_razon':'#C9826B', 'gremiob_tempest':'#80868B',
   'gremiob_mus':'#55B7A5', 'gremiob_pistol':'#176B3A', 'gremiob_adalman':'#27B83A', dm:'#B026FF'
 };
 function guildCardId(member){ return member.id || `gremiob_${member.name.toLowerCase().replace(/[^a-z0-9]/g,'')}`; }

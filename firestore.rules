@@ -8,7 +8,7 @@ service cloud.firestore {
         'itzel', 'birsha', 'nyx', 'cinto', 'chankkla',
         'vin', 'therian', 'geppeto', 'gremiob',
         'johnc', 'razon', 'h', 'mus', 'pistol', 'adalman',
-        'gremiob_johnc', 'gremiob_razon', 'gremiob_h',
+        'gremiob_johnc', 'gremiob_razon', 'gremiob_h', 'gremiob_tempest',
         'gremiob_mus', 'gremiob_pistol', 'gremiob_adalman'
       ]
       && (!('text' in request.resource.data)
