@@ -1630,7 +1630,7 @@ const missions = {
 
 };
 function renderMissions(){
-  const map = { facil:'missionsFacil', medio:'missionsMedio', dificil:'missionsDificil', especial:'missionsEspecial' };
+  const map = { medio:'missionsMedio', dificil:'missionsDificil', especial:'missionsEspecial' };
   Object.keys(map).forEach(key=>{
     const el = document.getElementById(map[key]);
     if(!el) return;
