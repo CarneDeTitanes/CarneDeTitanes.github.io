@@ -887,11 +887,11 @@ footer a:hover{color:var(--gold-bright);}
     </div>
     <div class="progress-panel">
       <div class="progress-top">
-        <span class="lvl">Nivel 5</span>
-        <span class="pg-count">185 / 230 PG hasta Nivel 6</span>
+        <span class="lvl">Nivel 6</span>
+        <span class="pg-count">230 / 315 PG hasta Nivel 6</span>
       </div>
       <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
-      <p class="progress-note">185 PG acumulados; faltan 45 PG para alcanzar el Nivel 6.</p>
+      <p class="progress-note">185 PG acumulados; faltan 85 PG para alcanzar el Nivel 7.</p>
     </div>
   </section>
 
@@ -1477,6 +1477,7 @@ footer a:hover{color:var(--gold-bright);}
     </div>
     <p class="map-showcase-caption" style="max-width:640px; margin:0 auto 2.5rem; text-align:center;">Aquí se relata la historia del gremio de aventureros del continente El Suelo.</p>
     <div class="timeline">
+      <div class="timeline-node"><h4>Entrada a la mazmorra</h4><p>Los aventureros comienzan su aventura en la mazmorra del mago loco.</p></div>
       <div class="timeline-node"><h4>La colmena</h4><p>Los aventureros descubren la colmena y se enfrentan a los hormigas guardianas.</p></div>
       <div class="timeline-node"><h4>El Faro</h4><p>Temis muere y es reemplazada por Nyx. Los aventureros descubren una nueva aliada pirata y empiezan a conocer el mundo</p></div>
       <div class="timeline-node"><h4>Rescate en la nieve</h4><p>Birsha muere y es reemplazada por Itzel. Los aventureros descubren cada vez mas sobre el coloso de la Nieve</p></div>
@@ -1615,18 +1616,18 @@ function renderLevelChips(){
 renderLevelChips();
 
 const missions = {
-  facil: [
-    {title:'Sombras del Fuerte del Último Vigía', meta:'Nivel 3 · 4-5 personajes · 3-4 horas', desc:'Un grupo drow queda dentro de una fortaleza abandonada tras un ataque que salió mal. El gremio debe entrar y detenerlos antes de que escapen de vuelta al inframundo con información peligrosa sobre la superficie.', detail:'La aventura transcurre en las ruinas de un fuerte fronterizo tomado por un comando drow que originalmente iba a usarlo como cabeza de puente para una invasión, hasta que algo dentro del fuerte los sorprendió a ellos primero. El gremio llega cuando los drow, heridos y a la defensiva, intentan asegurar una salida hacia el inframundo antes de que la información que llevan llegue a sus superiores. Combina exploración de un fuerte semien ruinas, un combate central bien armado y un puñado de PNJs secundarios con personalidad propia. Pensada para 4-5 personajes de nivel 4, dura entre 3 y 4 horas.'}
-  ],
   medio: [
-    {title:'Bajo la Rosa Negra', meta:'Nivel 4 · 5 jugadores', desc:'Una posada tiene un fantasma que ronda sus pasillos y un secreto sectario enterrado bajo el piso. El gremio debe bajar a resolver ambas cosas y cerrar una tragedia de décadas atrás.', detail:'El gremio llega a una posada con fama de estar embrujada, contratado para investigar apariciones que llevan años inquietando al pueblo. La familia que regenta el lugar tiene sus propias tensiones y secretos, y a medida que el gremio indaga queda claro que lo que ronda la posada tiene raíz en algo que pasó hace mucho tiempo bajo el edificio mismo. Combina investigación social con los PNJs de la posada, exploración de espacios ocultos y un enfrentamiento final con lo que sea que hayan estado despertando sin darse cuenta.'}
+    {title:'Bajo la Rosa Negra', meta:'Nivel 6 · 5 jugadores', desc:'Una posada tiene un fantasma que ronda sus pasillos y un secreto sectario enterrado bajo el piso. El gremio debe bajar a resolver ambas cosas y cerrar una tragedia de décadas atrás.', detail:'El gremio llega a una posada con fama de estar embrujada, contratado para investigar apariciones que llevan años inquietando al pueblo. La familia que regenta el lugar tiene sus propias tensiones y secretos, y a medida que el gremio indaga queda claro que lo que ronda la posada tiene raíz en algo que pasó hace mucho tiempo bajo el edificio mismo. Combina investigación social con los PNJs de la posada, exploración de espacios ocultos y un enfrentamiento final con lo que sea que hayan estado despertando sin darse cuenta.'}
   ],
   dificil: [
-    {title:'La mazmorra del mago loco', meta:'Nivel 6 · 4 jugadores', desc:'Los aventureros deben ver que pasa en esta subcampaña de +10 sesiones donde se infiltraran en la mazmorra de Maddgoth.', detail: 'Los aventureros que frecuentan el Portal Bostezante amenudo encuentran trabajo adentrándose en Undermountain contratados por terceros. Puede que los personajes cuenten con sus propias razones para adentrarse en la Mazmorra del Mago Loco, pero los ganchos de aventura descritos en esta sección pueden utilizarse para reforzar sus motivaciones.'}
+    {title:'La caza del carnero salvaje', meta:'Nivel 7 · 4 jugadores', desc:'Una fiesta de aventureros es interrumpida por una oveja desesperada que puede hablar, resulta ser un mago elfo transformado por su aprendiz', detail: 'El elfo Finethir ShineBright fue convertido en oveja por su aprendiz quien le robó una poderosa varita de polimorfia. Los aventureros deben ayudar al ovino mago a recuperar su veradera forma, viajando hasta la torre en el arbol donde se esconde el peligroso aprendiz'}
   ],
-  especial: [
-    {title:'En las Fauces del Nido', meta:'Requisito: Chnak-kla', desc:'Chank-kla guiará a vuestro grupo a las Cuevas de Quitina, territorio de los hombres-insecto, para encontrarse con un contacto secreto. La misión: recoger un paquete sellado sin abrirlo y escapar de inmediato antes de que el enjambre los descubra.', detail:'Las órdenes del Gremio no admiten dudas ni rodeos: el encargo es prioritario, la discreción absoluta y las preguntas están de más. Al frente de la marcha camina Chank-kla, guiándoos hacia las fauces de las Cuevas de Quitina, donde la roca húmeda se transforma en un laberinto sofocante de resina endurecida, arcos estriados y túneles que crujen bajo el paso de una civilización subterránea de hombres-insecto. La transacción debe ser limpia y fugaz. La consigna del Gremio resuena con claridad en vuestra mente: recoger el paquete sellado, resistir la tentación de comprobar qué hay dentro y salir de las cuevas a la mayor velocidad posible antes de que los guardianes del nido o rivales al acecho se interpongan en el camino de vuelta.'}
+  especial: [ 
+    {title:'Un árbol en el bosque', meta:'Solo: Chank-kla, Geppeto, Cinto', desc:'Mus ha desaparecido. Fue visto por última vez en la sede del Gremio con la mochila y la ranita de Temis bien sujeta bajo el brazo. Parecía angustiado y con prisa urgente por perderse en el bosque prohibido.', detail:'Tras una dura discusión con el gremio rival que lo hizo sentirse discriminado, Mus ha huido hacia el denso bosque mágico. Razon encarga a Cinto, Chank-kla y Geppetto su búsqueda por ser los más indicados para calmarlo. Los héroes deberán sortear a las extrañas criaturas de la espesura, dialogar con él para comprender su dolor y convencerlo de volver.'}
   ]
+ 
+  <!-- Despues de la dificil piso 2 de Mago loco, despues de la especial torneo -->
+
 };
 function renderMissions(){
   const map = { facil:'missionsFacil', medio:'missionsMedio', dificil:'missionsDificil', especial:'missionsEspecial' };
@@ -2865,7 +2866,7 @@ const armors = [
   {name:'Placas Remendadas', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'comun', price:260, desc:'Dale un golpecito a la coraza para que se ilumine en un radio de 6 m.'},
   {name:'Coraza Autónoma', slot:'Armadura', baseAC:'17', weight:'Pesada', rarity:'comun', price:300, desc:'Puede ponerse y quitarse sola con una orden mental sencilla.'},
   {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:550, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
-  {name:'Armadura Fantasma', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'azul', price:600, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
+  {name:'Armadura Fantasma  SOLD', slot:'Armadura', baseAC:'14 + DES (máx. 2)', weight:'Intermedia', rarity:'azul', price:600, desc:'1/DL, acción adicional: te vuelves Invisible hasta el inicio de tu próximo turno o hasta atacar/lanzar un conjuro.'},
   {name:'Cuero Tejido de Araña',slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:480, desc:'Velocidad de trepar igual a tu velocidad caminando; ventaja en salvaciones contra quedar Apresado.'},
   {name:'Botas Etélicas', slot:'Botas', rarity:'azul', price:450, desc:'Tus pasos no emiten ningún sonido, sin importar la velocidad a la que te muevas. Tienes ventaja en todas las pruebas de Destreza (Sigilo) que dependan de no hacer ruido.'},
   {name:'Diadema de Sinergia Arcana', slot:'Casco', rarity:'azul', price:600, desc:'Cada vez que aplicas un estado a un enemigo obtienes Sinergia Arcana, el turno siguiente usas el modificador de tu característica de lanzamiento de conjuros al daño de tus ataques con armas.'},
