@@ -2843,24 +2843,24 @@ const weapons = [
   {name:'Rodela Trabadora', type:'Escudo', dice:'+2 CA', rarity:'azul', price:800, desc:'Cuando una criatura te falla un ataque cuerpo a cuerpo, usa tu reacción: salvación de Fuerza (CD 8 + competencia + mod. Fuerza) o cae derribada. 3 cargas, recuperas 1DC y todas DL.'},
   {name:'Escudo Baluarte', type:'Escudo', dice:'+2 CA', rarity:'azul', price:550, desc:'Acción adicional: postura defensiva hasta el inicio de tu siguiente turno. Ataques a distancia contra ti con desventaja, pero no puedes usar reacciones.'},
   {name:'Ballesta de la Retirada', type:'Ballesta Ligera', dice:'1d8+DES', rarity:'azul', price:520, desc:'Tras acertar a un enemigo con un crítico, puedes moverte 3m sin provocar ataques de oportunidad.'},
-  {name:'Mandoble del Frenesí', type:'Mandoble', dice:'2d6+FUE', rarity:'azul', price:750, desc:'Al lograr un crítico o reducir a una criatura a 0 PG con esta arma, puedes hacer un ataque adicional con ella (1/turno). Después de usarlo, tienes desventaja en tu siguiente salvación de Destreza.'},
+  {name:'Hacha del Frenesí', type:'Hacha de guerra', dice:'1d8+FUE', rarity:'azul', price:750, desc:'Al lograr un crítico, puedes gastar una accion adicioal para hacer un ataque con ella (1/turno). Después de usarlo, tienes desventaja en tu siguiente salvación de Destreza hasta el siguiente DC.'},
   {name:'Pica del Guardián', type:'Pica', dice:'1d10+FUE', rarity:'azul', price:650, desc:'Cuando una criatura entra en tu alcance, usa tu reacción: ataca con esta arma. Si impacta, su velocidad pasa a 0 hasta el final de su turno. 2 cargas, recuperas todas DL.'},
-  {name:'Martillo del Estruendo', type:'Martillo de Guerra', dice:'1d8+FUE', rarity:'azul', price:700, desc:'Una vez por turno, al impactar, el objetivo sufre 1d4 de daño de Trueno adicional y es empujado 3m. Cada golpe se oye a 100m: no puedes usar Sigilo en combate mientras lo empuñes.'},
-  {name:'Arco Largo del Ojo de Halcón', type:'Arco Largo', dice:'1d8+DES', rarity:'azul', price:800, desc:'Ignoras la cobertura media y no sufres desventaja a distancia larga. Si no te has movido en tu turno, tu primer ataque con él hace 1d6 de daño adicional.'},
-  {name:'Bastón del Canalizador', type:'Bastón', dice:'1d6+FUE', rarity:'azul', price:850, desc:'Sirve como foco arcano. 1/DL, al lanzar un conjuro de nivel 1-3, puedes lanzarlo como si el espacio fuera un nivel superior sin gastar un espacio adicional; sufres 1d6 de daño Psíquico por nivel del conjuro.'},
+  {name:'Martillo del Estruendo', type:'Martillo de Guerra', dice:'1d8+FUE', rarity:'azul', price:700, desc:'Una vez por turno, al impactar, el objetivo sufre 1d4 de daño de Trueno adicional y puedes elegir empujarlo 3m. Cada golpe se oye a 100m: no puedes usar Sigilo en combate mientras lo empuñes.'},
+  {name:'Arco Largo del Ojo de Halcón', type:'Arco Largo', dice:'1d8+DES', rarity:'azul', price:800, desc:'Si no te has movido en tu turno, tu primer ataque con él hace 1d6 de daño adicional.'},
+  {name:'Bastón del Canalizador', type:'Bastón', dice:'1d6+FUE', rarity:'azul', price:650, desc:'Sirve como foco arcano. Al tirar un conjuro de nivel 1-3, una vez/DL tira 1d6 si el numero sale par no gasta espacio de conjuro. '},
 ];
 
 const armors = [
-  {name:'Guantes de Poder', slot:'Guantes', rarity:'azul', price:550, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
+  {name:'Guantes de Poder SOLD', slot:'Guantes', rarity:'azul', price:550, desc:'Al impactar a un objetivo con un crítico, aplicas una penalización de 1d4 a su próxima tirada de ataque una vez por turno.'},
   {name:'Cuero Tejido de Araña', slot:'Armadura', baseAC:'13 + DES (máx. 2)', weight:'Ligera', rarity:'azul', price:520, desc:'Velocidad de trepar igual a tu velocidad caminando; ventaja en salvaciones contra quedar Apresado.'},
   {name:'Botas Etélicas', slot:'Botas', rarity:'azul', price:550, desc:'Tus pasos no emiten ningún sonido, sin importar la velocidad a la que te muevas. Tienes ventaja en todas las pruebas de Destreza (Sigilo) que dependan de no hacer ruido.'},
   {name:'Diadema de Sinergia Arcana', slot:'Casco', rarity:'azul', price:600, desc:'Cada vez que aplicas un estado a un enemigo obtienes Sinergia Arcana, el turno siguiente usas el modificador de tu característica de lanzamiento de conjuros al daño de tus ataques con armas.'},
   {name:'Escamas del Abismo Menor', slot:'Armadura', baseAC:'18', weight:'Pesada', rarity:'azul', price:900, desc:'Resistencia a daño necrótico.'},
   {name:'Yelmo del Vigía Insomne', slot:'Casco', rarity:'azul', price:600, desc:'No puedes ser sorprendido mientras estés consciente y tienes visión en la oscuridad a 18m. El yelmo resuena: desventaja en salvaciones contra efectos de Trueno.'},
-  {name:'Guanteletes del Agarre Férreo', slot:'Guantes', rarity:'azul', price:650, desc:'Al impactar con un ataque cuerpo a cuerpo, puedes iniciar un agarre como acción adicional con ventaja en la prueba. Mientras mantienes el agarre, tu CA baja en 1.'},
-  {name:'Botas del Impulso Brusco', slot:'Botas', rarity:'azul', price:700, desc:'1/DC, acción adicional: te mueves hasta 9m en línea recta sin provocar ataques de oportunidad. Al terminar, tienes desventaja en tu siguiente tirada de ataque.'},
-  {name:'Camisote de Brasas', slot:'Armadura', baseAC:'15 + DES (máx. 2)', weight:'Intermedia', rarity:'azul', price:800, desc:'Resistencia a daño de fuego. Eres vulnerable al daño de frío mientras la llevas puesta.'},
-  {name:'Manto del Acechador', slot:'Armadura', baseAC:'12 + DES', weight:'Ligera', rarity:'azul', price:700, desc:'Ventaja en pruebas de Sigilo con luz tenue u oscuridad. Con luz brillante, desventaja en esas mismas pruebas.'},
+  {name:'Guanteletes del Agarre Férreo', slot:'Guantes', rarity:'azul', price:650, desc:'Al impactar con un ataque cuerpo a cuerpo, puedes iniciar un agarre como acción adicional con ventaja en la prueba.'},
+  {name:'Botas del Impulso Brusco', slot:'Botas', rarity:'azul', price:700, desc:'1/DC, acción adicional: te mueves hasta 9m en línea recta sin provocar ataques de oportunidad. Al terminar, tienes desventaja en tu primera tirada de ataque hasta el final de tu siguiente turno.'},
+  {name:'Camisote de Brasas', slot:'Armadura', baseAC:'15 + DES (máx. 2)', weight:'Intermedia', rarity:'azul', price:600, desc:'Inmune a daño de fuego. Eres vulnerable al daño de frío y necrótico mientras la llevas puesta.'},
+  {name:'Manto del Acechador', slot:'Armadura', baseAC:'12 + DES', weight:'Ligera', rarity:'azul', price:700, desc:'Ventaja en pruebas de Sigilo con luz tenue u oscuridad.'},
 ];
 
 const accessories = [
@@ -2869,9 +2869,9 @@ const accessories = [
   {name:'Capa de las Sombras Cambiantes', type:'Capa', rarity:'azul', price:500, desc:'1/DL, como reacción: si un ataque cuerpo a cuerpo recibido falla, el atacante queda Cegado hasta el final de su próximo turno.'},
   {name:'Capa del Viajero Insomne', type:'Capa', rarity:'azul', price:620, desc:'1/DL, no necesita descansar para beneficiarse de un descanso corto.'},
   {name:'Anillo del Eco Cercano', type:'Anillo', rarity:'azul', price:500, desc:'Una vez por descanso corto, susurra un mensaje que solo oirá quien elijas, hasta 18 metros de distancia.'},
-  {name:'Anillo del Latido Prestado', type:'Anillo', rarity:'azul', price:900, desc:'1/DL, reacción: cuando un aliado a 9m es reducido a 0 PG, queda a 1 PG en su lugar y tú sufres 2d6 de daño Necrótico que no puede reducirse de ninguna forma.'},
-  {name:'Amuleto del Cazador de Titanes', type:'Amuleto', rarity:'azul', price:900, desc:'Una vez por turno, +1d6 de daño contra criaturas Enormes o mayores. Los Colosales cercanos pueden notar que lo llevas (a criterio del DM).'},
-  {name:'Capa del Espejismo', type:'Capa', rarity:'azul', price:600, desc:'1/DC, reacción al ser objetivo de un ataque a distancia: el atacante tiene desventaja. Hasta el inicio de tu siguiente turno, tu CA baja en 2 (el espejismo se rompe).'},
+  {name:'Anillo del Latido Prestado', type:'Anillo', rarity:'azul', price:900, desc:'1/DL, reacción: cuando un aliado a 9m es reducido a 0 PG, queda a 1 PG en su lugar y tú sufres 2d6 de daño Necrótico que reduce tu vida maxima hasta el siguiente DL.'},
+  {name:'Amuleto del Cazador de Titanes', type:'Amuleto', rarity:'azul', price:900, desc:'Una vez por turno, +1d6 de daño contra criaturas Enormes o mayores.'},
+  {name:'Capa del Espejismo', type:'Capa', rarity:'azul', price:600, desc:'1/DC, reacción al ser objetivo de un ataque a distancia: el atacante tiene desventaja. Si impacta, el daño se reduce a la mitad.'},
   {name:'Anillo del Almacén Arcano', type:'Anillo', rarity:'azul', price:850, desc:'Un lanzador puede almacenar en él un conjuro de nivel 1 o 2 (gasta el espacio de conjuro, que queda bloqueado hasta que se lance). Quien lleve el anillo puede lanzarlo como acción sin gastar espacio.'},
   {name:'Anillo de Concentración Tensa', type:'Anillo', rarity:'azul', price:700, desc:'Ventaja en salvaciones de Constitución para mantener la concentración. Cada vez que pierdes la concentración, sufres 1d6 de daño Psíquico.'},
 ];
