@@ -758,6 +758,19 @@ footer a:hover{color:var(--gold-bright);}
   body::after{display:none;}
   .ember-layer,.deco-wisp{display:none;}
 }
+
+/* ---------------- REWORK OVERLAY (Fabricación) ---------------- */
+#reworkOverlay{display:none; position:fixed; inset:0; z-index:90; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:2rem;
+  background:repeating-linear-gradient(-45deg, rgba(6,10,17,0.97) 0 28px, rgba(30,22,6,0.97) 28px 56px); backdrop-filter:blur(10px);}
+#reworkOverlay.show{display:flex; animation:reworkIn 0.4s ease-out;}
+#reworkOverlay .rw-icon{font-size:clamp(4rem,14vw,9rem); line-height:1; animation:reworkSpin 6s linear infinite; filter:drop-shadow(0 0 24px rgba(232,197,99,0.6));}
+#reworkOverlay .rw-title{font-family:'Cinzel',serif; font-weight:900; font-size:clamp(2.6rem,11vw,9rem); line-height:1; margin:1rem 0 0.6rem; color:var(--gold-bright); text-transform:uppercase; letter-spacing:0.04em; text-shadow:0 0 30px rgba(232,197,99,0.55), 0 4px 0 #000; animation:reworkPulse 1.8s ease-in-out infinite;}
+#reworkOverlay .rw-sub{font-family:'Cinzel',serif; font-size:clamp(1rem,3.2vw,2rem); color:var(--text); letter-spacing:0.25em; text-transform:uppercase; border-top:2px solid var(--gold); border-bottom:2px solid var(--gold); padding:0.6rem 1.4rem;}
+#reworkOverlay .rw-note{margin-top:1.4rem; color:var(--text-dim); font-size:clamp(0.85rem,2vw,1.1rem); max-width:36rem;}
+body.rework-lock{overflow:hidden;}
+@keyframes reworkIn{from{opacity:0; transform:scale(1.08);}to{opacity:1; transform:scale(1);}}
+@keyframes reworkPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes reworkSpin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
@@ -1348,6 +1361,14 @@ footer a:hover{color:var(--gold-bright);}
     <div>Carne de Titanes — una campaña de Jackks</div>
   </footer>
 
+</div>
+
+<!-- ================= REWORK OVERLAY (sin botón de cierre a propósito) ================= -->
+<div id="reworkOverlay" role="alertdialog" aria-modal="true" aria-label="Fabricación en rework">
+  <div class="rw-icon">⚙</div>
+  <div class="rw-title">REWORK<br>in progress</div>
+  <div class="rw-sub">Fabricación en obras</div>
+  <div class="rw-note">Esta sección se está rehaciendo. Usa el menú de arriba para volver a otra pestaña.</div>
 </div>
 
 <!-- ================= FABRICACIÓN VIEW ================= -->
@@ -2629,6 +2650,8 @@ function goToView(target){
   if(target==='forge') renderWeaponSaleMarket();
   if(target==='historia') openMissionModal(missions.especial[0]);
   if(target==='forja') renderForja();
+  document.getElementById('reworkOverlay').classList.toggle('show', target==='forja');
+  document.body.classList.toggle('rework-lock', target==='forja');
   window.scrollTo({top:0, behavior:'instant'});
 }
 document.querySelectorAll('.nav-dropdown-menu button').forEach(btn=>{
